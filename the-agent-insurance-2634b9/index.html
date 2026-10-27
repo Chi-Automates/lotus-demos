@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#ffffff">
+  <meta name="robots" content="noindex, nofollow">
+  <title>A considered concept for The Agent Insurance Services</title>
+
+  <!--
+    CSS VARIABLES
+    --brand, --brand-hover, --brand-soft, --ink, --muted, --surface, --border, --canvas
+
+    PLACEHOLDERS
+    The Agent Insurance Services, TA, Boardman, OH, Independent since 1999 · Offices in Boardman and Salem, Ohio · Personal, commercial and life insurance,
+    app/#dashboard, ,
+    Renewal review 60 days out, re-market when premium jumps, Online quote request → documents in → quoted, Late payment caught before cancellation, Certificates of insurance, same day,
+    Website quote forms, Client Center, Carrier portals, Gmail, Google Calendar, QuickBooks
+  -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;450;500;550;600;650;700&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+
+  <style>
+    :root {
+      --brand: #1F3A5F;
+      --brand-hover: #0d284d;
+      --brand-soft: #e6e9ed;
+      --ink: #17211c;
+      --muted: #69756e;
+      --surface: #ffffff;
+      --border: #e5e9e5;
+      --canvas: #f8faf8;
+      --content: 1140px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 88px; }
+    body {
+      margin: 0; background: var(--surface); color: var(--ink);
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; }
+    .container { width: min(var(--content), calc(100% - 56px)); margin-inline: auto; }
+    .muted { color: var(--muted); }
+
+    .topbar { border-bottom: 1px solid var(--border); background: var(--surface); }
+    .topbar-inner { min-height: 78px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .identity { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .logo {
+      width: 36px; height: 36px; flex: 0 0 36px; display: grid; place-items: center;
+      border-radius: 9px; background: var(--brand); color: white;
+      font-size: 11px; font-weight: 700; letter-spacing: -.04em;
+    }
+    .identity-meta { min-width: 0; }
+    .identity-label { display: block; margin-bottom: 3px; color: var(--muted); font-size: 10px; letter-spacing: .025em; }
+    .identity-name { display: block; max-width: 390px; overflow-wrap: anywhere; font-size: 13px; font-weight: 600; letter-spacing: -.02em; }
+
+    .button {
+      display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+      min-height: 44px; padding: 0 17px; border: 1px solid var(--brand);
+      border-radius: 8px; background: var(--brand); color: #fff;
+      font: inherit; font-size: 12px; font-weight: 600; white-space: nowrap;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .button:hover { background: var(--brand-hover); border-color: var(--brand-hover); transform: translateY(-1px); }
+    .button svg { width: 15px; height: 15px; }
+    a:focus-visible { outline: 3px solid var(--brand-soft); outline-offset: 3px; }
+
+    /* Hero: editorial typography paired with a restrained product preview. */
+    .hero { padding: 86px 0 88px; }
+    .hero-grid { display: grid; grid-template-columns: .88fr 1.12fr; align-items: center; gap: clamp(44px, 7vw, 92px); }
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 9px; margin-bottom: 25px;
+      color: var(--brand); font-size: 10px; font-weight: 700; letter-spacing: .095em; text-transform: uppercase;
+    }
+    .eyebrow-mark { width: 20px; height: 1px; background: var(--brand); }
+    h1 {
+      max-width: 550px; margin: 0; font-size: clamp(42px, 5.1vw, 66px);
+      line-height: 1.035; font-weight: 550; letter-spacing: -.073em;
+    }
+    .hero-copy { max-width: 480px; }
+    .hero-description { margin: 24px 0 0; max-width: 440px; color: var(--muted); font-size: 15px; line-height: 1.85; letter-spacing: -.01em; }
+    .business-fact { display: flex; align-items: flex-start; gap: 9px; margin-top: 22px; color: #4f5d54; font-size: 11px; line-height: 1.7; }
+    .business-fact svg { width: 15px; height: 15px; flex: 0 0 15px; margin-top: 2px; color: var(--brand); }
+    .hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 21px; margin-top: 30px; }
+    .quiet-link { display: inline-flex; align-items: center; gap: 7px; color: var(--ink); font-size: 12px; font-weight: 600; }
+    .quiet-link svg { width: 14px; height: 14px; transition: transform .18s ease; }
+    .quiet-link:hover svg { transform: translateY(3px); }
+
+    .preview { min-width: 0; position: relative; }
+    .preview::before {
+      content: ""; position: absolute; z-index: 0; left: 12%; right: -5%; top: 14%; bottom: -8%;
+      background: var(--brand-soft); border-radius: 2px;
+    }
+    .window {
+      position: relative; z-index: 1; overflow: hidden; background: #fff;
+      border: 1px solid #dfe5e0; border-radius: 10px;
+      box-shadow: 0 20px 55px rgba(22, 42, 30, .12), 0 2px 7px rgba(22, 42, 30, .04);
+    }
+    .window-bar { height: 38px; display: flex; align-items: center; gap: 6px; padding: 0 13px; background: #fcfdfc; border-bottom: 1px solid var(--border); }
+    .window-dot { width: 7px; height: 7px; border-radius: 50%; background: #d6ddd7; }
+    .window-address {
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+      width: min(220px, 60%); height: 22px; margin: 0 auto;
+      border: 1px solid #edf0ed; border-radius: 5px; color: #929a94; background: white; font-size: 9px;
+    }
+    .window-address svg { width: 10px; height: 10px; }
+    .dashboard-shot { display: block; width: 100%; height: auto; min-height: 210px; object-fit: cover; object-position: top; background: #f5f7f5; }
+    .preview-note { display: flex; justify-content: space-between; gap: 12px; margin: 15px 2px 0; color: var(--muted); font-size: 10px; }
+    .preview-note span { display: inline-flex; align-items: center; gap: 6px; }
+    .preview-note svg { width: 13px; height: 13px; color: var(--brand); }
+
+    .section { padding: 82px 0; }
+    .section-soft { background: var(--canvas); border-block: 1px solid #edf0ed; }
+    .section-head { max-width: 620px; margin-bottom: 35px; }
+    .kicker { margin-bottom: 13px; color: var(--brand); font-size: 10px; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+    h2 { margin: 0; font-size: clamp(29px, 3.4vw, 40px); line-height: 1.14; font-weight: 550; letter-spacing: -.055em; }
+    .section-intro { max-width: 530px; margin: 13px 0 0; color: var(--muted); font-size: 13px; line-height: 1.8; }
+
+    .benefits { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .benefit { padding: 27px 26px 28px 0; }
+    .benefit + .benefit { padding-left: 26px; border-left: 1px solid var(--border); }
+    .benefit-icon { display: inline-flex; align-items: center; justify-content: center; width: 34px; height: 34px; margin-bottom: 22px; border: 1px solid color-mix(in srgb, var(--brand) 22%, white); border-radius: 8px; color: var(--brand); background: var(--brand-soft); }
+    .benefit-icon svg { width: 16px; height: 16px; }
+    .benefit h3, .automation h3 { margin: 0; font-size: 14px; font-weight: 600; line-height: 1.5; letter-spacing: -.025em; }
+    .benefit p { margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+    .automation-grid { display: grid; grid-template-columns: repeat(2, 1fr); column-gap: 42px; }
+    .automation { display: flex; align-items: flex-start; gap: 16px; padding: 24px 0; border-top: 1px solid var(--border); }
+    .automation-icon { display: flex; align-items: center; justify-content: center; width: 35px; height: 35px; flex: 0 0 35px; color: var(--brand); background: var(--brand-soft); border-radius: 8px; }
+    .automation-icon svg { width: 16px; height: 16px; }
+    .automation p { margin: 7px 0 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+    .connect-grid { display: grid; grid-template-columns: .85fr 1.15fr; align-items: center; gap: 72px; }
+    .connect-grid .section-head { margin: 0; }
+    .map { padding: 27px 24px 24px; border: 1px solid var(--border); border-radius: 12px; background: white; }
+    .tool-list { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+    .tool { display: inline-flex; align-items: center; gap: 7px; padding: 9px 10px; border: 1px solid var(--border); border-radius: 6px; color: #566259; background: white; font-size: 10px; font-weight: 550; }
+    .tool::before { content: ""; width: 5px; height: 5px; border-radius: 2px; background: var(--brand); opacity: .75; }
+    .wires { display: block; width: 100%; height: 43px; }
+    .wires path { fill: none; stroke: color-mix(in srgb, var(--brand) 40%, white); stroke-width: 1.2; }
+    .hub { display: flex; align-items: center; justify-content: center; gap: 9px; width: fit-content; max-width: 100%; margin: 0 auto; padding: 11px 14px; border: 1px solid color-mix(in srgb, var(--brand) 30%, white); border-radius: 8px; color: var(--brand); background: var(--brand-soft); font-size: 11px; font-weight: 650; overflow-wrap: anywhere; }
+    .hub-mark { display: grid; place-items: center; width: 24px; height: 24px; flex: 0 0 24px; border-radius: 6px; color: white; background: var(--brand); font-size: 8px; font-weight: 700; }
+
+    .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+    .step { padding-top: 18px; border-top: 1px solid var(--border); }
+    .step-num { margin-bottom: 20px; color: var(--brand); font-size: 10px; font-weight: 700; letter-spacing: .09em; }
+    .step h3 { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: -.025em; }
+    .step p { max-width: 300px; margin: 9px 0 0; color: var(--muted); font-size: 11px; line-height: 1.8; }
+
+    .closing { padding: 70px 0 65px; }
+    .closing-panel { display: flex; align-items: center; justify-content: space-between; gap: 28px; padding: 38px 40px; background: var(--brand-soft); border: 1px solid color-mix(in srgb, var(--brand) 22%, white); border-radius: 12px; }
+    .closing-panel h2 { font-size: clamp(28px, 3.2vw, 38px); }
+    .closing-panel p { margin: 10px 0 0; color: #5e6c63; font-size: 12px; line-height: 1.7; }
+    .signature { margin-top: 23px; color: var(--muted); text-align: center; font-size: 10px; }
+    footer { padding: 23px 0 29px; border-top: 1px solid var(--border); }
+    .footer-inner { display: flex; justify-content: space-between; align-items: center; gap: 14px; color: #87918a; font-size: 9px; line-height: 1.7; }
+    .footer-note { display: inline-flex; align-items: center; gap: 6px; }
+    .footer-note svg { width: 12px; height: 12px; }
+
+
+    .live-shot { position: relative; display: block; width: 100%; aspect-ratio: 1440 / 900; overflow: hidden; background: #f5f7f5; }
+    .live-shot iframe { position: absolute; top: 0; left: 0; width: 1440px; height: 900px; border: 0; transform-origin: 0 0; pointer-events: none; }
+    .live-shot::after { content: ""; position: absolute; inset: 0; }
+    .live-shot:hover + .open-hint, .open-hint:hover { opacity: 1; }
+    .preview a.shot-link { display: block; }
+
+    @media (max-width: 900px) {
+      .hero { padding: 65px 0 74px; }
+      .hero-grid { grid-template-columns: 1fr; gap: 43px; }
+      .hero-copy { max-width: 650px; }
+      .hero-description { max-width: 560px; }
+      .preview { width: min(100%, 720px); }
+      .connect-grid { grid-template-columns: 1fr; gap: 30px; }
+      .connect-grid .section-head { max-width: 620px; }
+    }
+    @media (max-width: 640px) {
+      .container { width: calc(100% - 36px); }
+      .topbar-inner { min-height: 67px; gap: 10px; }
+      .logo { width: 32px; height: 32px; flex-basis: 32px; font-size: 10px; }
+      .identity { gap: 9px; }
+      .identity-label { font-size: 9px; }
+      .identity-name { max-width: 145px; font-size: 11px; }
+      .topbar .button { min-height: 38px; padding: 0 10px; gap: 5px; font-size: 10px; }
+      .topbar .button svg { width: 13px; height: 13px; }
+      .hero { padding: 49px 0 57px; }
+      .eyebrow { margin-bottom: 19px; font-size: 9px; }
+      h1 { font-size: clamp(40px, 10.5vw, 51px); line-height: 1.04; }
+      .hero-description { margin-top: 19px; font-size: 13px; line-height: 1.85; }
+      .business-fact { font-size: 10px; }
+      .hero-actions { align-items: flex-start; flex-direction: column; gap: 17px; margin-top: 25px; }
+      .hero-actions .button { width: 100%; }
+      .window { border-radius: 8px; }
+      .window-bar { height: 32px; }
+      .dashboard-shot { min-height: 150px; }
+      .preview-note { font-size: 9px; }
+      .section { padding: 57px 0; }
+      .section-head { margin-bottom: 25px; }
+      h2 { font-size: 30px; }
+      .section-intro { font-size: 12px; }
+      .benefits { grid-template-columns: 1fr; }
+      .benefit, .benefit + .benefit { padding: 22px 0; border-left: 0; }
+      .benefit + .benefit { border-top: 1px solid var(--border); }
+      .benefit-icon { margin-bottom: 14px; }
+      .benefit p { max-width: 390px; }
+      .automation-grid { grid-template-columns: 1fr; }
+      .automation { padding: 20px 0; }
+      .map { padding: 20px 11px 18px; }
+      .tool-list { gap: 6px; }
+      .tool { padding: 8px; font-size: 9px; }
+      .steps { grid-template-columns: 1fr; gap: 24px; }
+      .step { padding-top: 14px; }
+      .step-num { margin-bottom: 13px; }
+      .closing { padding: 48px 0 45px; }
+      .closing-panel { align-items: stretch; flex-direction: column; gap: 22px; padding: 27px 22px; }
+      .closing-panel .button { width: 100%; }
+      .footer-inner { align-items: flex-start; flex-direction: column; gap: 6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="identity" href="#" aria-label="Concept preview home">
+        <span class="logo">TA</span>
+        <span class="identity-meta">
+          <span class="identity-label">A private concept preview for</span>
+          <span class="identity-name">The Agent Insurance Services</span>
+        </span>
+      </a>
+      <a class="button" href="app/#dashboard">
+        Open your system <i data-lucide="arrow-up-right" aria-hidden="true"></i>
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <div class="eyebrow"><span class="eyebrow-mark"></span>A concept built for The Agent Insurance Services</div>
+          <h1>Your whole operation, in one system you own.</h1>
+          <p class="hero-description">A first look at a workspace shaped around how The Agent runs: quote requests, documents, renewals across many carriers, the Client Center and both offices in one place, with the follow-up running on its own.</p>
+          <div class="business-fact"><i data-lucide="map-pin" aria-hidden="true"></i><span>Independent since 1999 · Offices in Boardman and Salem, Ohio · Personal, commercial and life insurance</span></div>
+          <div class="hero-actions">
+            <a class="button" href="app/#dashboard">Open your system <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+            <a class="quiet-link" href="#automations">See what it automates <i data-lucide="arrow-down" aria-hidden="true"></i></a>
+          </div>
+        </div>
+
+        <div class="preview">
+          <div class="window">
+            <div class="window-bar" aria-hidden="true">
+              <span class="window-dot"></span><span class="window-dot"></span><span class="window-dot"></span>
+              <div class="window-address"><i data-lucide="lock-keyhole"></i> private workspace preview</div>
+            </div>
+            <a class="shot-link" href="app/#dashboard" aria-label="Open the The Agent Insurance Services system"><span class="live-shot"><iframe src="app/#dashboard" title="Live preview of the The Agent Insurance Services dashboard" loading="eager" tabindex="-1" scrolling="no"></iframe></span></a>
+          </div>
+          <div class="preview-note">
+            <span><i data-lucide="panels-top-left" aria-hidden="true"></i> A first look at your workspace</span>
+            <span>Concept preview</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" aria-label="Benefits">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">Made to fit your business</div>
+          <h2>Good systems make work feel simpler.</h2>
+          <p class="section-intro">The aim is not to add another tool. It is to make the way you already work feel more connected and manageable.</p>
+        </div>
+        <div class="benefits">
+          <article class="benefit">
+            <div class="benefit-icon"><i data-lucide="sliders-horizontal" aria-hidden="true"></i></div>
+            <h3>Built around how you run</h3>
+            <p>Your workflows, terminology, and priorities shape the system—not the other way around.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-icon"><i data-lucide="key-round" aria-hidden="true"></i></div>
+            <h3>Yours, outright</h3>
+            <p>No monthly per-user fees, and you could even license it to others in your field.</p>
+          </article>
+          <article class="benefit">
+            <div class="benefit-icon"><i data-lucide="plug" aria-hidden="true"></i></div>
+            <h3>Works with your existing tools</h3>
+            <p>Bring the apps you already rely on into a more joined-up way of working.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="automations">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">The everyday details</div>
+          <h2>What it would automate for you</h2>
+          <p class="section-intro">Here are a few practical places a tailored system could save time and reduce manual follow-up.</p>
+        </div>
+        <div class="automation-grid">
+          <article class="automation">
+            <div class="automation-icon"><i data-lucide="workflow" aria-hidden="true"></i></div>
+            <div><h3>Renewal review 60 days out, re-market when premium jumps</h3><p>Every renewal gets looked at before it lands, and big increases go back to market before the client notices.</p></div>
+          </article>
+          <article class="automation">
+            <div class="automation-icon"><i data-lucide="bell-ring" aria-hidden="true"></i></div>
+            <div><h3>Online quote request → documents in → quoted</h3><p>A quote can’t start until the paperwork is in, so the chasing happens on its own.</p></div>
+          </article>
+          <article class="automation">
+            <div class="automation-icon"><i data-lucide="files" aria-hidden="true"></i></div>
+            <div><h3>Late payment caught before cancellation</h3><p>Clients who simply forgot get a nudge in time, so policies don’t lapse over a missed payment.</p></div>
+          </article>
+          <article class="automation">
+            <div class="automation-icon"><i data-lucide="chart-no-axes-combined" aria-hidden="true"></i></div>
+            <div><h3>Certificates of insurance, same day</h3><p>Contractors need certificates fast; they request one and it goes out without waiting on an agent.</p></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="integrations">
+      <div class="container connect-grid">
+        <div class="section-head">
+          <div class="kicker">Everything in conversation</div>
+          <h2>Connects to what you already use.</h2>
+          <p class="section-intro">Your workspace can sit at the centre of your day-to-day operations, helping information move between the tools your team already knows.</p>
+        </div>
+        <div class="map" aria-label="Existing tools connected to the business workspace">
+          <div class="tool-list">
+            <span class="tool">Website quote forms</span><span class="tool">Client Center</span>
+            <span class="tool">Carrier portals</span><span class="tool">Gmail</span>
+            <span class="tool">Google Calendar</span><span class="tool">QuickBooks</span>
+          </div>
+          <svg class="wires" viewBox="0 0 320 43" preserveAspectRatio="none" aria-hidden="true">
+            <path d="M25 0 C25 23 160 13 160 43"/><path d="M79 0 C79 23 160 13 160 43"/>
+            <path d="M133 0 C133 23 160 13 160 43"/><path d="M187 0 C187 23 160 13 160 43"/>
+            <path d="M241 0 C241 23 160 13 160 43"/><path d="M295 0 C295 23 160 13 160 43"/>
+          </svg>
+          <div class="hub"><span class="hub-mark">TA</span><span>The Agent Insurance Services</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="kicker">A straightforward process</div>
+          <h2>From first look to handover.</h2>
+        </div>
+        <div class="steps">
+          <article class="step">
+            <div class="step-num">01 / DISCOVER</div>
+            <h3>A short walkthrough call</h3>
+            <p>We walk through the concept, hear what matters to you, and identify the most useful next steps.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">02 / BUILD</div>
+            <h3>Shaped around your team</h3>
+            <p>We refine the screens, workflows, and connections to reflect the way your business actually operates.</p>
+          </article>
+          <article class="step">
+            <div class="step-num">03 / HAND OVER</div>
+            <h3>It's yours</h3>
+            <p>Your team gets a practical handover and a system designed to be used with confidence.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <div class="closing-panel">
+          <div>
+            <h2>Like what you see?</h2>
+            <p>Step inside the concept and explore what a system built around your business could look like.</p>
+          </div>
+          <a class="button" href="app/#dashboard">Open your system <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+        </div>
+        <div class="signature">Built in plain code by Chiamaka Chiawalam, automation engineer.</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>Concept preview prepared for The Agent Insurance Services · sample data for illustration only</span>
+      <span class="footer-note"><i data-lucide="shield-check" aria-hidden="true"></i> Private concept preview</span>
+    </div>
+  </footer>
+
+  <script>
+    // Render Lucide icons. The rest of the page works without JavaScript.
+    if (window.lucide) window.lucide.createIcons({ attrs: { "stroke-width": 1.7 } });
+
+    function fitPreview(){document.querySelectorAll('.live-shot').forEach(b=>{const f=b.querySelector('iframe');if(f)f.style.transform='scale('+(b.clientWidth/1440)+')'})}
+    window.addEventListener('resize',fitPreview);fitPreview();
+
+  </script>
+</body>
+</html>
