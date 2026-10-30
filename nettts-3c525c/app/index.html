@@ -1,0 +1,884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#1F6FB2">
+<meta name="color-scheme" content="light">
+<meta name="robots" content="noindex, nofollow">
+<title>New England Tractor Trailer Training School — Business Hub (concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="https://unpkg.com/lucide@0.468.0/dist/umd/lucide.min.js"></script>
+<style>
+:root{
+  --brand:#1F6FB2;
+  --brand-hover:#0d5da0;
+  --brand-soft:#e6eff7;
+  --ink:#17231F;
+  --muted:#738079;
+  --surface:#FFFFFF;
+  --border:#E5EAE7;
+  --success:#237A52;
+  --warning:#A76616;
+  --danger:#B94343;
+  --canvas:#F7F9F8;
+  --sidebar:248px;
+  --radius:14px;
+  --shadow:0 8px 28px rgba(21,42,33,.055);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--canvas);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:14px;line-height:1.45;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+svg{width:18px;height:18px;stroke-width:1.8}
+.app-shell{min-height:100vh}
+.sidebar{width:var(--sidebar);position:fixed;inset:0 auto 0 0;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;padding:25px 15px 15px;z-index:20}
+.brand-lockup{display:flex;align-items:center;gap:11px;padding:0 10px 28px}
+.brand-mark{width:36px;height:36px;display:grid;place-items:center;border-radius:11px;background:var(--brand);color:white;font-weight:800;font-size:12px;letter-spacing:-.5px}
+.brand-name{font-size:14px;font-weight:700;letter-spacing:-.35px;max-width:155px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.brand-sub{font-size:11px;color:var(--muted);margin-top:2px}
+.nav-label{font-size:10px;text-transform:uppercase;letter-spacing:1.1px;font-weight:700;color:#98A29C;padding:8px 12px 9px}
+.nav-list{display:grid;gap:4px}
+.nav-link{display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:9px;color:#68756E;font-weight:500;transition:background .15s,color .15s;position:relative}
+.nav-link svg{width:17px;height:17px}
+.nav-link:hover{background:#F6F8F7;color:var(--ink)}
+.nav-link.active{background:var(--brand-soft);color:var(--brand);font-weight:650}
+.nav-link .nav-count{margin-left:auto;font-size:11px;background:#F0F3F1;color:#65716A;border-radius:6px;padding:2px 6px}
+.sidebar-bottom{margin-top:auto}
+.help-card{margin:14px 2px 18px;padding:14px;border:1px solid var(--border);border-radius:12px;background:#FBFCFB}
+.help-card strong{font-size:12px;display:block;margin:8px 0 4px}
+.help-card p{font-size:11px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.help-card button{border:0;background:var(--brand-soft);color:var(--brand);border-radius:7px;padding:8px 10px;font-size:11px;font-weight:650;width:100%}
+.profile-mini{border-top:1px solid var(--border);padding:16px 7px 2px;display:flex;align-items:center;gap:10px}
+.avatar{width:34px;height:34px;border-radius:50%;background:#F0E5D8;color:#7A5334;display:grid;place-items:center;font-size:11px;font-weight:700;flex:none}
+.profile-mini strong{font-size:12px;display:block}
+.profile-mini span{font-size:11px;color:var(--muted)}
+.main{margin-left:var(--sidebar);min-height:100vh}
+.topbar{height:76px;padding:0 38px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--border);background:rgba(255,255,255,.88);gap:20px}
+.breadcrumb{font-size:12px;color:var(--muted);display:flex;align-items:center;gap:8px}
+.breadcrumb strong{color:var(--ink);font-weight:600}
+.top-actions{display:flex;align-items:center;gap:10px}
+.search-box{display:flex;align-items:center;gap:8px;background:#F7F9F8;border:1px solid var(--border);border-radius:9px;padding:8px 10px;width:210px;color:var(--muted)}
+.search-box input{border:0;background:transparent;outline:0;width:100%;font-size:12px;color:var(--ink)}
+.search-box svg{width:15px;height:15px}
+.icon-button{border:1px solid var(--border);background:white;color:#66736B;border-radius:9px;width:36px;height:36px;display:grid;place-items:center;position:relative}
+.icon-button:hover{background:#F8FAF9}
+.notification-dot{position:absolute;width:6px;height:6px;background:var(--danger);border:1px solid white;border-radius:50%;right:7px;top:7px}
+.top-avatar{width:33px;height:33px;border-radius:50%;display:grid;place-items:center;background:#E9EEE9;color:#4F6256;font-weight:700;font-size:11px}
+.content{max-width:1440px;margin:0 auto;padding:32px 38px 22px}
+.module{display:none;animation:appear .2s ease}
+.module.active{display:block}
+@keyframes appear{from{opacity:.45;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
+.page-head{display:flex;justify-content:space-between;align-items:flex-start;gap:18px;margin-bottom:26px}
+.eyebrow{font-size:11px;color:var(--brand);font-weight:700;text-transform:uppercase;letter-spacing:.9px;margin-bottom:8px}
+h1{font-size:27px;letter-spacing:-1.05px;line-height:1.2;margin:0 0 8px;font-weight:700}
+.page-head p{margin:0;color:var(--muted);font-size:13px}
+.button{border:1px solid var(--border);background:white;color:var(--ink);border-radius:9px;padding:10px 13px;display:inline-flex;align-items:center;justify-content:center;gap:8px;font-size:12px;font-weight:600;white-space:nowrap;transition:.15s}
+.button svg{width:15px;height:15px}
+.button:hover{background:#F8FAF9;border-color:#D5DDD8}
+.button.primary{background:var(--brand);border-color:var(--brand);color:#fff}
+.button.primary:hover{background:var(--brand-hover)}
+.button.subtle{background:var(--brand-soft);border-color:transparent;color:var(--brand)}
+.button.small{padding:7px 10px;font-size:11px}
+.button:focus-visible,.nav-link:focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 25%,transparent);outline-offset:2px}
+.metrics{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-bottom:18px}
+.panel,.metric{background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 2px 7px rgba(20,40,30,.015)}
+.metric{padding:18px 19px}
+.metric-top{display:flex;align-items:center;justify-content:space-between;gap:10px;color:var(--muted);font-size:12px;font-weight:500}
+.metric-icon{width:32px;height:32px;border-radius:9px;display:grid;place-items:center;background:#F4F7F5;color:#66776D}
+.metric-icon svg{width:16px;height:16px}
+.metric-value{font-size:27px;font-weight:700;letter-spacing:-1.1px;margin:13px 0 7px}
+.metric-foot{display:flex;align-items:center;gap:6px;font-size:11px;color:var(--muted)}
+.trend{color:var(--success);font-weight:650;display:inline-flex;align-items:center;gap:3px}
+.trend svg{width:12px;height:12px}
+.dashboard-grid{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(290px,1fr);gap:17px;margin-bottom:18px}
+.panel-head{display:flex;justify-content:space-between;align-items:center;padding:19px 20px 0;gap:12px}
+.panel-title{font-size:13px;font-weight:700;letter-spacing:-.15px}
+.panel-subtitle{font-size:11px;color:var(--muted);margin-top:4px}
+.panel-body{padding:18px 20px 20px}
+.select-mini{border:1px solid var(--border);background:white;border-radius:7px;padding:6px 8px;color:#68756E;font-size:11px}
+.chart-summary{display:flex;align-items:baseline;gap:10px;margin:18px 0 0}
+.chart-summary strong{font-size:24px;letter-spacing:-.8px}
+.chart-summary span{font-size:11px;color:var(--success);font-weight:650}
+.chart{width:100%;height:155px;display:block;overflow:visible;margin-top:10px}
+.chart-labels{display:flex;justify-content:space-between;color:#9AA49E;font-size:10px;margin-top:1px}
+.schedule-list,.activity-list{display:grid}
+.schedule-item{display:grid;grid-template-columns:55px 3px minmax(0,1fr) auto;gap:10px;align-items:center;padding:13px 0;border-bottom:1px solid #F0F3F1}
+.schedule-item:last-child,.activity-item:last-child{border-bottom:0}
+.schedule-time{font-size:11px;color:var(--muted)}
+.schedule-bar{height:36px;border-radius:4px;background:#D9EAE4}
+.schedule-bar.amber{background:#F3E4C9}.schedule-bar.rose{background:#F2DCDC}
+.schedule-detail strong{font-size:12px;font-weight:650;display:block;margin-bottom:3px}
+.schedule-detail span{font-size:11px;color:var(--muted)}
+.schedule-tag{font-size:10px;padding:4px 7px;border-radius:6px;background:#F3F6F4;color:#627168}
+.bottom-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:17px}
+.activity-item{display:flex;gap:11px;padding:13px 0;border-bottom:1px solid #F0F3F1}
+.activity-icon{width:31px;height:31px;border-radius:9px;background:#F3F6F4;display:grid;place-items:center;color:#697970;flex:none}
+.activity-icon svg{width:15px;height:15px}
+.activity-copy{min-width:0;flex:1}
+.activity-copy p{margin:0;font-size:11px;line-height:1.55}
+.activity-copy strong{font-weight:650}
+.activity-copy span{display:block;font-size:10px;color:#98A29C;margin-top:4px}
+.status{display:inline-flex;align-items:center;gap:5px;padding:4px 8px;border-radius:100px;font-size:10px;font-weight:650;white-space:nowrap}
+.status:before{content:"";width:5px;height:5px;border-radius:50%;background:currentColor}
+.status.paid,.status.active-status,.status.completed{background:#EAF5EF;color:#28764F}
+.status.unpaid,.status.pending{background:#FFF5E4;color:#9A651D}
+.status.overdue,.status.late{background:#FCEDED;color:#AD4545}
+.status.neutral{background:#F0F3F1;color:#69756E}
+.toolbar{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.toolbar-left,.toolbar-right{display:flex;align-items:center;gap:9px}
+.table-wrap{overflow:auto}
+table{width:100%;border-collapse:collapse;white-space:nowrap}
+th{text-align:left;padding:12px 18px;background:#FAFBFA;border-bottom:1px solid var(--border);font-size:10px;text-transform:uppercase;letter-spacing:.65px;color:#89948D;font-weight:650}
+td{padding:14px 18px;border-bottom:1px solid #EEF1EF;font-size:12px;color:#56645B}
+tbody tr:last-child td{border-bottom:0}
+tbody tr.clickable{cursor:pointer}
+tbody tr.clickable:hover{background:#FAFCFB}
+.person-cell{display:flex;align-items:center;gap:10px}
+.person-avatar{width:32px;height:32px;border-radius:50%;display:grid;place-items:center;background:#EAF0EC;color:#516B5A;font-size:10px;font-weight:700;flex:none}
+.person-avatar.tan{background:#F5E9DF;color:#8A6549}.person-avatar.lilac{background:#EEEAF5;color:#74628B}.person-avatar.gold{background:#F6EFD9;color:#8C773A}.person-avatar.rose{background:#F7E5E5;color:#9A5E5E}
+.person-cell strong{display:block;font-size:12px;color:var(--ink);font-weight:650}
+.person-cell small{display:block;color:#8C9790;font-size:10px;margin-top:3px}
+.table-foot{border-top:1px solid var(--border);padding:13px 18px;display:flex;justify-content:space-between;align-items:center;color:var(--muted);font-size:11px}
+.pagination{display:flex;gap:5px}
+.page-num{border:1px solid var(--border);background:white;width:28px;height:28px;border-radius:7px;color:#718077;font-size:11px}
+.page-num.current{background:var(--brand-soft);border-color:var(--brand-soft);color:var(--brand);font-weight:700}
+.input-control{border:1px solid var(--border);border-radius:9px;padding:9px 11px;background:white;outline:0;color:var(--ink);font-size:12px;min-width:0}
+.input-control:focus{border-color:var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.search-inline{display:flex;align-items:center;gap:8px;border:1px solid var(--border);border-radius:9px;background:white;padding:0 10px;color:#8C9790}
+.search-inline svg{width:15px;height:15px}
+.search-inline input{border:0;outline:0;padding:10px 0;width:190px;font-size:12px;background:transparent}
+.split-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.85fr);gap:17px}
+.calendar-panel{overflow:hidden}
+.calendar-toolbar{display:flex;align-items:center;justify-content:space-between;padding:16px 18px;border-bottom:1px solid var(--border)}
+.calendar-toolbar strong{font-size:13px}
+.calendar-grid{display:grid;grid-template-columns:54px repeat(7,minmax(75px,1fr));min-width:700px}
+.calendar-scroll{overflow:auto}
+.day-head{padding:12px 5px;text-align:center;border-bottom:1px solid var(--border);border-left:1px solid #F0F2F1;color:var(--muted);font-size:10px}
+.day-head strong{display:block;color:var(--ink);font-size:13px;margin-top:4px}
+.day-head.today strong{background:var(--brand);color:white;border-radius:50%;width:26px;height:26px;display:grid;place-items:center;margin:4px auto 0}
+.time-label{height:70px;border-bottom:1px solid #F0F2F1;padding:8px 8px 0 0;text-align:right;color:#9AA49E;font-size:10px}
+.calendar-cell{height:70px;border-left:1px solid #F0F2F1;border-bottom:1px solid #F0F2F1;padding:3px;position:relative}
+.event{border-radius:6px;padding:6px 5px;font-size:9px;line-height:1.45;color:#315F4D;background:#E5F2EC;border-left:2px solid #5A9A7A;min-height:47px;overflow:hidden;cursor:pointer}
+.event.gold{background:#FCF1DD;color:#8D6321;border-left-color:#D5A44D}
+.event.rose{background:#FBEAEA;color:#995252;border-left-color:#CF8585}
+.event strong{display:block;font-size:9px;font-weight:700;margin-bottom:2px}
+.calendar-legend{display:flex;gap:15px;padding:14px 18px;color:var(--muted);font-size:10px}
+.legend-dot{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px}
+.side-panel{background:white;border:1px solid var(--border);border-radius:var(--radius);padding:20px;min-width:0}
+.side-panel h3{font-size:13px;margin:0 0 15px}
+.mini-stat{padding:13px 0;border-bottom:1px solid #F0F3F1;display:flex;justify-content:space-between;gap:12px;font-size:11px}
+.mini-stat:last-child{border-bottom:0}
+.mini-stat span{color:var(--muted)}
+.kanban{display:grid;grid-template-columns:repeat(4,minmax(210px,1fr));gap:13px;align-items:start;overflow-x:auto;padding-bottom:10px}
+.kanban-col{background:#F0F3F1;border:1px solid #E9EDEA;border-radius:12px;padding:10px;min-height:390px}
+.kanban-head{display:flex;align-items:center;justify-content:space-between;padding:4px 3px 12px;font-size:11px;font-weight:700}
+.kanban-head span{color:#8C9790;background:#E2E8E4;padding:3px 7px;border-radius:6px;font-size:10px}
+.job-card{background:white;border:1px solid var(--border);border-radius:10px;padding:13px;margin-bottom:9px;box-shadow:0 2px 4px rgba(20,40,30,.02);cursor:pointer}
+.job-card:hover{border-color:#CAD8CF;transform:translateY(-1px)}
+.job-type{font-size:9px;font-weight:700;letter-spacing:.55px;text-transform:uppercase;color:var(--brand);margin-bottom:8px}
+.job-card h4{font-size:12px;line-height:1.4;margin:0 0 7px}
+.job-card p{font-size:10px;color:var(--muted);margin:0 0 13px}
+.job-meta{display:flex;align-items:center;justify-content:space-between;padding-top:10px;border-top:1px solid #F0F3F1;color:#79857D;font-size:10px}
+.job-meta strong{color:var(--ink);font-size:11px}
+.invoice-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(320px,.85fr);gap:17px}
+.invoice-preview{padding:25px;background:#FBFCFB;border:1px solid var(--border);border-radius:12px}
+.invoice-brand{display:flex;justify-content:space-between;align-items:flex-start;border-bottom:1px solid var(--border);padding-bottom:22px;margin-bottom:22px}
+.invoice-brand strong{font-size:16px;letter-spacing:-.4px}
+.invoice-brand small{display:block;color:var(--muted);font-size:10px;margin-top:5px}
+.invoice-word{font-size:23px;letter-spacing:-.7px;font-weight:750;color:#D7DFDA}
+.invoice-meta{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-bottom:26px}
+.invoice-meta label{display:block;color:#909A94;font-size:9px;text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px}
+.invoice-meta strong{font-size:11px;line-height:1.7}
+.invoice-lines{width:100%;font-size:11px}
+.invoice-lines th{padding:10px 0;background:transparent}
+.invoice-lines td{padding:12px 0}
+.invoice-total{margin:18px 0 0 auto;width:190px}
+.invoice-total div{display:flex;justify-content:space-between;padding:6px 0;color:var(--muted);font-size:11px}
+.invoice-total .grand{border-top:1px solid var(--border);margin-top:6px;padding-top:13px;color:var(--ink);font-size:13px;font-weight:750}
+.workflow-grid,.integration-grid,.settings-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px}
+.workflow-card{padding:19px}
+.workflow-top{display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.workflow-icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--brand-soft);color:var(--brand)}
+.workflow-icon svg{width:18px;height:18px}
+.workflow-card h3{font-size:13px;margin:15px 0 6px;letter-spacing:-.2px}
+.workflow-card p{font-size:11px;color:var(--muted);line-height:1.6;margin:0;min-height:37px}
+.workflow-meta{display:flex;justify-content:space-between;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid #F0F3F1;font-size:10px;color:var(--muted)}
+.workflow-meta strong{color:var(--ink);font-size:11px}
+.toggle{appearance:none;width:34px;height:20px;border-radius:99px;background:#D9E0DB;position:relative;transition:.2s;flex:none;outline:0}
+.toggle:before{content:"";width:14px;height:14px;border-radius:50%;background:white;position:absolute;top:3px;left:3px;box-shadow:0 1px 3px #0002;transition:.2s}
+.toggle:checked{background:var(--brand)}
+.toggle:checked:before{left:17px}
+.integration-card{padding:18px;display:flex;flex-direction:column;min-height:185px}
+.integration-top{display:flex;align-items:center;justify-content:space-between}
+.integration-logo{width:40px;height:40px;border:1px solid var(--border);border-radius:11px;display:grid;place-items:center;font-weight:800;font-size:15px;color:#43534A;background:white}
+.integration-logo.gmail{color:#C65045}.integration-logo.calendar{color:#3974D8}.integration-logo.quickbooks{color:#2D9B62}.integration-logo.stripe{color:#635BDB}.integration-logo.zoom{color:#387BC8}.integration-logo.whatsapp{color:#2A9B68}
+.integration-card h3{font-size:13px;margin:15px 0 5px}
+.integration-card p{font-size:11px;color:var(--muted);line-height:1.5;margin:0;flex:1}
+.integration-card .button{margin-top:15px;width:100%}
+.migration-card{grid-column:span 3;background:#FCFDFC;padding:22px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.migration-card h3{margin:0 0 6px;font-size:14px}
+.migration-card p{margin:0;color:var(--muted);font-size:11px;max-width:550px;line-height:1.6}
+.migration-logos{display:flex;gap:7px;margin-top:14px}
+.migration-logos span{border:1px solid var(--border);background:white;padding:6px 9px;border-radius:7px;font-size:10px;color:#647168}
+.settings-grid{grid-template-columns:minmax(0,1.2fr) minmax(300px,.8fr);align-items:start}
+.settings-card{padding:22px}
+.settings-card h3{font-size:13px;margin:0 0 5px}
+.settings-card>p{font-size:11px;color:var(--muted);margin:0 0 20px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.form-field{display:grid;gap:6px;margin-bottom:14px}
+.form-field label{font-size:11px;color:#66736B;font-weight:600}
+.form-field .input-control{width:100%}
+.color-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:13px 0 18px}
+.swatch{width:28px;height:28px;border-radius:8px;border:2px solid white;outline:1px solid transparent;cursor:pointer}
+.swatch.selected{outline-color:var(--ink)}
+.brand-custom{width:34px;height:34px;border:1px solid var(--border);border-radius:8px;padding:3px;background:white}
+.team-row{display:flex;align-items:center;gap:10px;padding:12px 0;border-bottom:1px solid #F0F3F1}
+.team-row:last-child{border-bottom:0}
+.team-row .team-info{flex:1}
+.team-row strong{font-size:11px;display:block}
+.team-row small{font-size:10px;color:var(--muted);display:block;margin-top:3px}
+.team-role{font-size:10px;color:var(--muted)}
+.empty-state{padding:30px;text-align:center;color:var(--muted);font-size:12px}
+.footer{padding:23px 0 7px;text-align:center;color:#9AA49E;font-size:10px;letter-spacing:.05px}
+.drawer-backdrop{position:fixed;inset:0;background:rgba(20,35,27,.28);z-index:50;opacity:0;pointer-events:none;transition:opacity .2s}
+.drawer-backdrop.open{opacity:1;pointer-events:auto}
+.customer-drawer{position:fixed;right:0;top:0;height:100dvh;width:min(420px,100%);background:white;z-index:51;box-shadow:-15px 0 45px rgba(22,40,30,.12);transform:translateX(102%);transition:transform .25s ease;display:flex;flex-direction:column}
+.customer-drawer.open{transform:translateX(0)}
+.drawer-head{padding:22px 22px 17px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between}
+.drawer-body{padding:22px;overflow:auto}
+.drawer-person{display:flex;align-items:center;gap:13px;margin-bottom:23px}
+.drawer-person .person-avatar{width:49px;height:49px;font-size:13px}
+.drawer-person h2{font-size:17px;letter-spacing:-.5px;margin:0 0 5px}
+.drawer-person p{font-size:11px;color:var(--muted);margin:0}
+.detail-label{font-size:10px;text-transform:uppercase;letter-spacing:.7px;color:#98A29C;font-weight:700;margin:22px 0 10px}
+.detail-row{display:flex;gap:10px;align-items:center;padding:9px 0;color:#536159;font-size:12px}
+.detail-row svg{width:15px;height:15px;color:#8B9890}
+.note-box{padding:13px;border:1px solid var(--border);border-radius:9px;font-size:11px;color:#647168;line-height:1.7;background:#FBFCFB}
+.toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,20px);background:#1E3027;color:white;padding:11px 16px;border-radius:10px;font-size:12px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.2s;z-index:100}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.mobile-brand{display:none}
+.mobile-nav{display:none}
+@media(max-width:1200px){
+  .content{padding:28px 25px}.topbar{padding:0 25px}
+  .metrics{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .workflow-grid,.integration-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .migration-card{grid-column:span 2}
+  .dashboard-grid{grid-template-columns:minmax(0,1.2fr) minmax(270px,1fr)}
+}
+@media(max-width:900px){
+  :root{--sidebar:215px}
+  .sidebar{padding-left:10px;padding-right:10px}
+  .dashboard-grid,.bottom-grid,.split-layout,.invoice-layout,.settings-grid{grid-template-columns:1fr}
+  .topbar{height:66px}
+  .search-box{width:170px}
+  .kanban{grid-template-columns:repeat(4,235px)}
+}
+@media(max-width:640px){
+  body{font-size:13px}
+  .sidebar{display:none}
+  .main{margin-left:0;padding-bottom:76px}
+  .topbar{height:60px;padding:0 17px}
+  .breadcrumb{font-size:11px}
+  .breadcrumb .crumb-home{display:none}
+  .top-actions{gap:7px}
+  .search-box{width:35px;padding:8px;justify-content:center;border:0;background:transparent}
+  .search-box input{display:none}
+  .search-box svg{width:18px;height:18px}
+  .top-actions .top-avatar{display:none}
+  .content{padding:24px 15px 16px}
+  .page-head{margin-bottom:20px;align-items:flex-start}
+  h1{font-size:23px;letter-spacing:-.8px}
+  .page-head p{font-size:12px;line-height:1.55}
+  .page-head>.button{padding:9px 10px;font-size:11px}
+  .page-head>.button svg{width:14px}
+  .eyebrow{font-size:10px}
+  .metrics{gap:10px;margin-bottom:13px}
+  .metric{padding:14px}
+  .metric-top{font-size:10px;align-items:flex-start}
+  .metric-icon{width:27px;height:27px}
+  .metric-value{font-size:22px;margin:12px 0 6px}
+  .metric-foot{font-size:10px;flex-wrap:wrap}
+  .dashboard-grid,.bottom-grid{gap:12px;margin-bottom:12px}
+  .panel-head{padding:16px 15px 0}
+  .panel-body{padding:14px 15px 16px}
+  .chart{height:135px}
+  .schedule-item{grid-template-columns:48px 3px minmax(0,1fr);gap:8px}
+  .schedule-tag{display:none}
+  .toolbar{align-items:stretch}
+  .toolbar-left,.toolbar-right{width:100%;flex-wrap:wrap}
+  .search-inline{flex:1;min-width:140px}
+  .search-inline input{width:100%}
+  .toolbar-right .button{flex:1}
+  .table-wrap{margin:0 -1px}
+  th,td{padding:12px 13px}
+  .workflow-grid,.integration-grid{grid-template-columns:1fr}
+  .migration-card{grid-column:span 1;align-items:flex-start;flex-direction:column}
+  .workflow-card{padding:16px}
+  .integration-card{min-height:170px}
+  .form-grid{grid-template-columns:1fr;gap:0}
+  .settings-card{padding:17px}
+  .invoice-preview{padding:17px}
+  .invoice-word{font-size:19px}
+  .calendar-panel .calendar-toolbar{padding:13px}
+  .footer{font-size:9px;line-height:1.6;padding:18px 10px 4px}
+  .mobile-nav{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;z-index:30;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--border);padding:7px 6px calc(7px + env(safe-area-inset-bottom));backdrop-filter:blur(10px)}
+  .mobile-nav .nav-link{padding:7px 2px 5px;display:flex;flex-direction:column;gap:4px;border-radius:8px;font-size:9px;color:#7A867F}
+  .mobile-nav .nav-link svg{width:18px;height:18px}
+  .mobile-nav .nav-link.active{color:var(--brand);background:transparent}
+  .mobile-nav .nav-link span{white-space:nowrap}
+  .hide-mobile{display:none!important}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important;scroll-behavior:auto!important}}
+
+/* Premium refinement layer — cohesive surfaces, stronger hierarchy, and responsive polish */
+:root{
+  --brand:#1F6FB2;--brand-hover:#0d5da0;--brand-soft:#e6eff7;
+  --ink:#17231F;--muted:#69776F;--surface:#FFFFFF;--border:#E3E9E5;
+  --success:#237A52;--warning:#9A651D;--danger:#AD4545;--canvas:#F6F8F6;
+  --sidebar:252px;--radius:15px;--shadow:0 8px 24px rgba(25,45,35,.045);
+  --shadow-hover:0 12px 30px rgba(25,45,35,.075);
+}
+body{background:var(--canvas);letter-spacing:-.08px}
+.sidebar{padding:27px 16px 16px;background:#FCFDFC;border-right-color:#E5EBE7}
+.brand-lockup{padding:0 9px 31px;gap:12px}
+.brand-mark{width:38px;height:38px;border-radius:12px;font-size:11px;letter-spacing:.2px;box-shadow:0 3px 8px color-mix(in srgb,var(--brand) 18%,transparent)}
+.brand-name{font-size:13px;letter-spacing:-.3px}
+.brand-sub{font-size:10px;letter-spacing:.15px}
+.nav-label{font-size:9px;letter-spacing:1.25px;color:#89958E;padding:9px 12px 10px}
+.nav-list{gap:3px}
+.nav-link{padding:10px 12px;gap:11px;border-radius:8px;font-size:12px;color:#627067;transition:background .16s ease,color .16s ease,transform .16s ease}
+.nav-link svg{width:16px;height:16px;stroke-width:1.75}
+.nav-link:hover{background:#F0F4F1;color:var(--ink)}
+.nav-link.active{background:var(--brand-soft);color:var(--brand);font-weight:650;box-shadow:inset 2px 0 0 var(--brand)}
+.nav-link .nav-count{background:#EDF1EE;color:#68766D;font-size:10px}
+.help-card{margin:13px 2px 17px;padding:14px;background:#F8FAF8;border-color:#E8EDE9;border-radius:11px}
+.help-card strong{font-size:11px}.help-card p{font-size:10px;line-height:1.65}
+.help-card button{font-size:10px;padding:9px;border-radius:7px}
+.profile-mini{padding-top:14px}.profile-mini strong{font-size:11px}.profile-mini span{font-size:10px}
+.main{min-width:0}
+.topbar{height:68px;padding:0 42px;background:rgba(255,255,255,.92);border-bottom-color:#E6EBE7;backdrop-filter:blur(14px)}
+.breadcrumb{font-size:11px;gap:9px}.breadcrumb strong{font-size:12px}
+.search-box{width:235px;padding:8px 11px;background:#F8FAF8;border-color:#E6EBE7;border-radius:8px}
+.search-box input{font-size:11px}
+.icon-button{width:35px;height:35px;border-radius:9px;color:#647269;border-color:#E3E9E5;transition:all .16s ease}
+.icon-button:hover{background:#F4F7F4;border-color:#D4DED7;color:var(--ink)}
+.content{max-width:1500px;padding:35px 42px 24px}
+.page-head{align-items:center;margin-bottom:25px}
+.eyebrow{font-size:9px;letter-spacing:1.15px;margin-bottom:9px}
+h1{font-size:26px;letter-spacing:-1.1px;font-weight:650;margin-bottom:7px}
+.page-head p{font-size:12px;color:#69776F}
+.button{border-radius:8px;padding:9px 12px;font-size:11px;font-weight:600;min-height:36px;transition:background .16s,border-color .16s,transform .16s,box-shadow .16s}
+.button svg{width:14px;height:14px}
+.button:hover{transform:translateY(-1px);box-shadow:0 3px 8px rgba(25,45,35,.04)}
+.button.primary{box-shadow:0 2px 4px color-mix(in srgb,var(--brand) 12%,transparent)}
+.button.primary:hover{box-shadow:0 4px 10px color-mix(in srgb,var(--brand) 18%,transparent)}
+.button.subtle{background:var(--brand-soft)}
+.metrics{gap:14px;margin-bottom:17px}
+.panel,.metric{border-color:#E3E9E5;border-radius:13px;box-shadow:0 1px 2px rgba(25,45,35,.018);transition:border-color .18s,box-shadow .18s}
+.metric{padding:18px 19px 17px;min-height:132px}
+.metric:hover,.panel:hover{border-color:#D8E2DB}
+.metric-top{font-size:11px;color:#6D7A72}
+.metric-icon{width:30px;height:30px;border-radius:9px;background:#F2F6F3;color:var(--brand)}
+.metric-icon svg{width:15px;height:15px}
+.metric-value{font-size:26px;letter-spacing:-1.15px;font-weight:650;margin:12px 0 6px;font-variant-numeric:tabular-nums}
+.metric-foot{font-size:10px;gap:5px}
+.trend{font-size:10px}
+.dashboard-grid{gap:16px;margin-bottom:16px;grid-template-columns:minmax(0,1.45fr) minmax(330px,1fr)}
+.panel-head{padding:18px 20px 0}
+.panel-title{font-size:12px;letter-spacing:-.2px;font-weight:650}
+.panel-subtitle{font-size:10px;color:#7A877F;margin-top:4px}
+.panel-body{padding:16px 20px 19px}
+.select-mini{border-color:#E3E9E5;color:#647168;border-radius:7px;padding:7px 9px;font-size:10px;outline-color:var(--brand)}
+.chart-summary{margin-top:17px;gap:9px}.chart-summary strong{font-size:25px;letter-spacing:-1px;font-weight:650;font-variant-numeric:tabular-nums}.chart-summary span{font-size:10px}
+.chart{height:164px;margin-top:13px}
+.chart-labels{font-size:9px;color:#87938B}
+.schedule-item{grid-template-columns:58px 3px minmax(0,1fr) auto;gap:10px;padding:12px 0;border-bottom-color:#EDF1EE}
+.schedule-time{font-size:10px;font-variant-numeric:tabular-nums}
+.schedule-bar{height:34px;border-radius:3px;background:#D9EAE2}
+.schedule-detail strong{font-size:11px;font-weight:600}.schedule-detail span{font-size:10px}
+.schedule-tag{font-size:9px;padding:4px 6px;background:#F1F5F2}
+.bottom-grid{gap:16px}
+.activity-item{gap:10px;padding:12px 0;border-bottom-color:#EDF1EE}
+.activity-icon{width:30px;height:30px;border-radius:8px;background:#F2F5F3;color:#64776B}
+.activity-copy p{font-size:10.5px}.activity-copy span{font-size:9px;color:#87938B}
+.status{padding:4px 7px;font-size:9px;letter-spacing:.05px}
+.toolbar{margin-bottom:14px}
+.toolbar-left,.toolbar-right{gap:8px}
+.search-inline{border-color:#E1E8E3;border-radius:8px}
+.search-inline input{font-size:11px}
+.input-control{border-color:#E1E8E3;border-radius:8px;font-size:11px;padding:9px 10px}
+.table-wrap{border-radius:12px}
+table{white-space:nowrap}
+th{padding:12px 17px;background:#F9FBF9;font-size:9px;letter-spacing:.8px;color:#7E8B82;border-bottom-color:#E5EBE7}
+td{padding:13px 17px;font-size:11px;color:#5F6D64;border-bottom-color:#EEF2EF}
+tbody tr.clickable{transition:background .12s}
+tbody tr.clickable:hover{background:#F7FAF8}
+.person-avatar{width:31px;height:31px;font-size:9px}
+.person-cell{gap:9px}.person-cell strong{font-size:11px}.person-cell small{font-size:9px;color:#7D8A81}
+.table-foot{padding:12px 17px;font-size:10px;border-top-color:#E7ECE8}
+.page-num{width:27px;height:27px;border-radius:7px;font-size:10px}
+.split-layout{gap:16px}
+.calendar-toolbar{padding:15px 17px;border-bottom-color:#E6EBE7}
+.calendar-toolbar strong{font-size:12px}
+.day-head{font-size:9px;border-bottom-color:#E6EBE7}
+.day-head strong{font-size:12px}
+.time-label{font-size:9px}
+.calendar-cell{padding:4px}
+.event{font-size:9px;border-radius:5px;padding:6px 5px}
+.event strong{font-size:9px}
+.calendar-legend{font-size:9px}
+.side-panel{border-radius:13px;padding:19px}
+.side-panel h3{font-size:12px}
+.mini-stat{font-size:10px;border-bottom-color:#EDF1EE}
+.kanban{gap:12px}
+.kanban-col{background:#F1F4F1;border-color:#E5EAE6;border-radius:11px;padding:10px;min-height:390px}
+.kanban-head{font-size:10px;padding:5px 3px 12px}
+.kanban-head span{font-size:9px;background:#E3EAE5}
+.job-card{border-color:#E3E9E5;border-radius:9px;padding:13px;margin-bottom:9px;box-shadow:0 1px 2px rgba(20,40,30,.025);transition:transform .16s,border-color .16s,box-shadow .16s}
+.job-card:hover{border-color:#C8D8CD;box-shadow:0 5px 14px rgba(20,40,30,.05)}
+.job-type{font-size:8px;letter-spacing:.8px}
+.job-card h4{font-size:11px;letter-spacing:-.1px}
+.job-card p{font-size:10px;line-height:1.55}
+.job-meta{font-size:9px;border-top-color:#EDF1EE}
+.job-meta strong{font-size:10px}
+.invoice-layout{gap:16px}
+.invoice-preview{padding:27px;background:#fff;border-color:#E0E7E2;border-radius:12px;box-shadow:0 2px 7px rgba(20,40,30,.025)}
+.invoice-brand{border-bottom-color:#E6EBE7;padding-bottom:20px;margin-bottom:22px}
+.invoice-brand strong{font-size:15px}.invoice-brand small{font-size:9px}
+.invoice-word{font-size:22px;letter-spacing:-.9px;color:#C9D4CD}
+.invoice-meta{gap:18px;margin-bottom:25px}
+.invoice-meta label{font-size:8px;color:#78867D}.invoice-meta strong{font-size:10px}
+.invoice-lines th{background:transparent;padding:10px 0}
+.invoice-lines td{padding:12px 0}
+.invoice-total{width:200px}
+.invoice-total div{font-size:10px}
+.invoice-total .grand{font-size:12px}
+.workflow-grid,.integration-grid,.settings-grid{gap:14px}
+.workflow-card{padding:19px}
+.workflow-top{align-items:center}
+.workflow-icon{width:36px;height:36px;border-radius:9px}
+.workflow-card h3{font-size:12px;margin:14px 0 6px}
+.workflow-card p{font-size:10px;line-height:1.65;min-height:40px}
+.workflow-meta{font-size:9px;border-top-color:#EDF1EE}
+.workflow-meta strong{font-size:10px}
+.toggle{width:33px;height:19px}
+.toggle:before{width:13px;height:13px;top:3px;left:3px}
+.toggle:checked:before{left:17px}
+.integration-card{padding:18px;min-height:184px;border-radius:13px}
+.integration-logo{width:38px;height:38px;border-radius:10px;font-size:14px}
+.integration-card h3{font-size:12px;margin:14px 0 5px}
+.integration-card p{font-size:10px;line-height:1.6}
+.integration-card .button{margin-top:14px}
+.migration-card{background:#F9FBF9;padding:21px;border-radius:13px}
+.migration-card h3{font-size:13px}.migration-card p{font-size:10px}
+.migration-logos span{font-size:9px;border-radius:6px}
+.settings-card{padding:22px;border-radius:13px}
+.settings-card h3{font-size:12px}
+.settings-card>p{font-size:10px;line-height:1.6}
+.form-field label{font-size:10px;color:#5E6C63}
+.color-row{gap:11px}
+.swatch{width:27px;height:27px;border-radius:7px}
+.team-row{border-bottom-color:#EDF1EE}
+.team-row strong{font-size:10px}.team-row small,.team-role{font-size:9px}
+.empty-state{padding:36px 25px}
+.footer{font-size:9px;color:#89958D}
+.customer-drawer{box-shadow:-18px 0 50px rgba(22,40,30,.14)}
+.drawer-head{padding:21px 22px 16px}
+.drawer-body{padding:22px}
+.drawer-person h2{font-size:16px}
+.detail-label{font-size:9px;color:#7F8C83}
+.detail-row{font-size:11px}
+.note-box{font-size:10px;background:#F9FBF9}
+.toast{font-size:11px;border-radius:9px;padding:11px 15px;box-shadow:0 8px 28px rgba(10,25,17,.16)}
+button:focus-visible,input:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid color-mix(in srgb,var(--brand) 25%,transparent);outline-offset:2px}
+.dragging{opacity:.55;transform:rotate(1deg)}
+.kanban-col[style*="outline"]{outline-offset:2px}
+@media(max-width:1200px){
+ .topbar{padding:0 28px}.content{padding:28px}
+ .dashboard-grid{grid-template-columns:minmax(0,1.15fr) minmax(285px,1fr)}
+}
+@media(max-width:900px){
+ :root{--sidebar:215px}
+ .topbar{padding:0 22px}.content{padding:25px 22px}
+ .dashboard-grid{grid-template-columns:1fr}
+ .metrics{gap:12px}
+ .bottom-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+ .topbar{height:58px;padding:0 15px}
+ .content{padding:22px 14px 15px}
+ .page-head{gap:10px;margin-bottom:19px}
+ h1{font-size:22px;letter-spacing:-.8px}
+ .page-head p{font-size:11px}
+ .page-head>.button{min-height:34px;padding:8px 9px}
+ .metrics{gap:9px}
+ .metric{padding:13px;min-height:120px;border-radius:11px}
+ .metric-value{font-size:21px;letter-spacing:-.7px}
+ .metric-top{font-size:9px}
+ .metric-foot{font-size:9px}
+ .panel,.metric{border-radius:11px}
+ .panel-head{padding:15px 14px 0}
+ .panel-body{padding:13px 14px 15px}
+ .chart{height:132px}
+ .chart-summary strong{font-size:22px}
+ .schedule-item{grid-template-columns:48px 3px minmax(0,1fr);gap:8px}
+ .schedule-detail strong{font-size:10px}
+ .schedule-detail span{font-size:9px}
+ .toolbar{gap:9px}
+ .toolbar-left,.toolbar-right{gap:7px}
+ .toolbar-right .button{flex:1}
+ .table-wrap{overflow-x:auto}
+ .workflow-grid,.integration-grid{grid-template-columns:1fr}
+ .migration-card{padding:17px}
+ .settings-card{padding:16px}
+ .invoice-preview{padding:16px}
+ .invoice-brand strong{font-size:13px}
+ .invoice-word{font-size:18px}
+ .calendar-toolbar{gap:8px;flex-wrap:wrap}
+ .calendar-toolbar>div{gap:6px!important}
+ .calendar-toolbar .icon-button{width:31px;height:31px}
+ .calendar-toolbar strong{font-size:10px}
+ .side-panel{padding:16px}
+ .mobile-nav{box-shadow:0 -4px 18px rgba(20,40,30,.035)}
+ .mobile-nav .nav-link{font-size:8px}
+}
+@media print{
+ body{background:#fff}
+ .sidebar,.topbar,.mobile-nav,.page-head>.button,.toolbar,.footer,.toast,.drawer-backdrop{display:none!important}
+ .main{margin:0}.content{max-width:none;padding:0}
+ .module{display:none!important}.module.active{display:block!important}
+ .panel,.metric,.invoice-preview{box-shadow:none;break-inside:avoid}
+ .invoice-preview{border:0;padding:0}
+}
+
+
+.section-intro{display:flex;justify-content:space-between;align-items:flex-end;margin:34px 0 14px}
+.section-intro h2{font-size:19px;letter-spacing:-.6px;margin:0 0 6px;font-weight:650}
+.section-intro p{margin:0;color:var(--muted);font-size:12px;max-width:640px}
+.recipe-list{display:grid;gap:14px}
+.recipe{padding:19px 20px}
+.recipe-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-start}
+.recipe-kicker{font-size:9px;font-weight:750;letter-spacing:.9px;text-transform:uppercase;color:var(--brand);margin-bottom:6px}
+.recipe h3{font-size:13px;margin:0 0 5px;letter-spacing:-.2px}
+.recipe-head p{font-size:11px;color:var(--muted);margin:0;line-height:1.6;max-width:640px}
+.flow{display:flex;align-items:stretch;gap:6px;margin-top:16px;overflow-x:auto;padding-bottom:4px}
+.flow-step{display:flex;gap:10px;align-items:flex-start;min-width:170px;flex:1;border:1px solid var(--border);border-radius:11px;padding:12px;background:#FBFCFB;transition:background .25s,border-color .25s,box-shadow .25s,transform .25s}
+.flow-step.lit{background:var(--brand-soft);border-color:color-mix(in srgb,var(--brand) 35%,white);box-shadow:0 6px 16px color-mix(in srgb,var(--brand) 12%,transparent);transform:translateY(-2px)}
+.flow-icon{width:30px;height:30px;border-radius:8px;display:grid;place-items:center;background:white;border:1px solid var(--border);color:var(--brand);flex:none}
+.flow-icon svg{width:15px;height:15px}
+.flow-kind{display:block;font-size:8px;font-weight:750;letter-spacing:.8px;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+.flow-step strong{display:block;font-size:11px;font-weight:650;margin-bottom:3px}
+.flow-step small{display:block;font-size:10px;color:var(--muted);line-height:1.5}
+.flow-arrow{display:grid;place-items:center;color:#A5B0A9;flex:none}
+.flow-arrow svg{width:15px;height:15px}
+.recipe-foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid #EDF1EE;font-size:10px;color:var(--muted);flex-wrap:wrap}
+.recipe-foot svg{width:13px;height:13px;vertical-align:-2px}
+.recipe-apps{display:flex;gap:6px;flex-wrap:wrap}
+.app-chip{border:1px solid var(--border);background:white;border-radius:6px;padding:4px 8px;font-size:9px;color:#5F6D64;font-weight:600}
+.hub-card{grid-column:1/-1}
+.hub{display:grid;gap:10px}
+.hub-row{display:grid;grid-template-columns:minmax(150px,.8fr) minmax(0,1.6fr) minmax(170px,.9fr);align-items:center;gap:14px;padding:10px 12px;border:1px solid #EDF1EE;border-radius:11px;background:#FBFCFB}
+.hub-app,.hub-core{display:flex;align-items:center;gap:10px;font-size:11px}
+.hub-app .integration-logo{width:32px;height:32px;font-size:12px}
+.hub-core .brand-mark{width:30px;height:30px;font-size:9px;border-radius:9px}
+.hub-core span:last-child{font-size:10.5px;color:var(--ink);font-weight:600}
+.hub-line{position:relative;display:flex;align-items:center;gap:8px;color:var(--brand);border-top:1.5px dashed color-mix(in srgb,var(--brand) 35%,white);padding-top:7px;margin-top:7px}
+.hub-line svg{width:14px;height:14px;flex:none;position:absolute;top:-8px;right:-2px;background:#FBFCFB}
+.hub-line small{font-size:10px;color:var(--muted)}
+.hub-pulse{position:absolute;top:-4.5px;left:0;width:8px;height:8px;border-radius:50%;background:var(--brand);animation:hubmove 2.6s linear infinite}
+@keyframes hubmove{from{left:0;opacity:0}10%{opacity:1}90%{opacity:1}to{left:calc(100% - 20px);opacity:0}}
+@media(max-width:900px){.hub-row{grid-template-columns:1fr}.hub-line{margin:4px 0}.flow{flex-direction:column}.flow-arrow{transform:rotate(90deg)}}
+@media(prefers-reduced-motion:reduce){.hub-pulse{animation:none;display:none}}
+
+.brand-name{display:block;white-space:normal;line-height:1.25;max-width:170px}.brand-sub{display:block}
+@media(max-width:640px){.search-box{width:35px;padding:8px;justify-content:center;border:0;background:transparent}.search-box input{display:none}.top-actions{flex:none}}
+</style>
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar" aria-label="Main navigation">
+    <a class="brand-lockup" href="#dashboard" aria-label="Go to dashboard">
+      <span class="brand-mark">NE</span>
+      <span><span class="brand-name">New England Tractor Trailer Training School</span><span class="brand-sub">School workspace</span></span>
+    </a>
+    <div class="nav-label">Workspace</div>
+    <nav class="nav-list" id="desktopNav"><a class="nav-link active" href="#dashboard" data-route="dashboard"><i data-lucide="layout-dashboard"></i>Dashboard</a><a class="nav-link" href="#customers" data-route="customers"><i data-lucide="graduation-cap"></i>Students<span class="nav-count">2640</span></a><a class="nav-link" href="#schedule" data-route="schedule"><i data-lucide="calendar-days"></i>Class schedule</a><a class="nav-link" href="#jobs" data-route="jobs"><i data-lucide="kanban"></i>Enrollment pipeline</a><a class="nav-link" href="#invoices" data-route="invoices"><i data-lucide="receipt-text"></i>Tuition &amp; payments</a>
+      <div class="nav-label" style="padding-top:22px">Systems</div>
+      <a class="nav-link" href="#automations" data-route="automations"><i data-lucide="workflow"></i>Automations</a>
+      <a class="nav-link" href="#integrations" data-route="integrations"><i data-lucide="plug"></i>Integrations</a>
+    </nav>
+    <div class="sidebar-bottom">
+      <a class="nav-link" href="#settings" data-route="settings"><i data-lucide="settings-2"></i>Settings</a>
+      <div class="help-card"><i data-lucide="life-buoy" style="color:var(--brand)"></i><strong>Need a hand?</strong><p>Your workspace, connected. Get help setting up your systems.</p><button data-action="help">Contact support</button></div>
+      <div class="profile-mini"><div class="avatar">AT</div><div><strong>Admissions Team</strong><span>Workspace admin</span></div><i data-lucide="chevrons-up-down" style="margin-left:auto;color:#9AA49E;width:15px"></i></div>
+    </div>
+  </aside>
+  <main class="main">
+    <header class="topbar">
+      <div class="breadcrumb"><span class="crumb-home">Workspace</span><i data-lucide="chevron-right" style="width:13px;height:13px"></i><strong id="breadcrumbTitle">Dashboard</strong></div>
+      <div class="top-actions">
+        <label class="search-box" aria-label="Search workspace"><i data-lucide="search"></i><input id="globalSearch" placeholder="Search anything..." aria-label="Search anything"></label>
+        <button class="icon-button" aria-label="Notifications" data-action="notifications"><i data-lucide="bell"></i><span class="notification-dot"></span></button>
+        <button class="icon-button hide-mobile" aria-label="Help" data-action="help"><i data-lucide="circle-help"></i></button>
+        <div class="top-avatar">AT</div>
+      </div>
+    </header>
+    <div class="content">
+      <section class="module active" data-module="dashboard">
+        <div class="page-head"><div><div class="eyebrow">Friday, October 30, 2026</div><h1>Good morning</h1><p>Here’s what’s happening across your four campuses today.</p></div><button class="button primary" data-action="quick-add"><i data-lucide="plus"></i>Quick add</button></div>
+        <div class="metrics"><article class="metric"><div class="metric-top"><span>Students in training</span><span class="metric-icon"><i data-lucide="users"></i></span></div><div class="metric-value">248</div><div class="metric-foot"><span class="trend">↑ 15</span> vs. last month</div></article><article class="metric"><div class="metric-top"><span>Tuition collected (Oct)</span><span class="metric-icon"><i data-lucide="wallet"></i></span></div><div class="metric-value">$612,400</div><div class="metric-foot"><span class="trend">↑ 6.9%</span> vs. September</div></article><article class="metric"><div class="metric-top"><span>Aid &amp; VA files open</span><span class="metric-icon"><i data-lucide="file-clock"></i></span></div><div class="metric-value">63</div><div class="metric-foot"><span style="color:var(--warning);font-weight:650">24 missing documents</span></div></article><article class="metric"><div class="metric-top"><span>New enquiries</span><span class="metric-icon"><i data-lucide="user-plus"></i></span></div><div class="metric-value">176</div><div class="metric-foot"><span class="trend">↑ 11%</span> this month</div></article></div>
+        <div class="dashboard-grid">
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-title">Enrollments &amp; revenue</div><div class="panel-subtitle">Program revenue across the last 6 months</div></div><select class="select-mini" aria-label="Period"><option>Last 6 months</option><option>This year</option><option>Last 30 days</option></select></div>
+            <div class="panel-body"><div class="chart-summary"><strong>$612,400</strong><span>↑ 12.8%</span></div>
+              <svg class="chart" viewBox="0 0 620 170" role="img" aria-label="Trend rising from May to October" preserveAspectRatio="none">
+                <defs><linearGradient id="chartFill" x1="0" x2="0" y1="0" y2="1"><stop offset="0%" stop-color="var(--brand)" stop-opacity=".16"/><stop offset="100%" stop-color="var(--brand)" stop-opacity="0"/></linearGradient></defs>
+                <g stroke="#EEF2EF" stroke-width="1"><line x1="0" y1="20" x2="620" y2="20"/><line x1="0" y1="58" x2="620" y2="58"/><line x1="0" y1="96" x2="620" y2="96"/><line x1="0" y1="134" x2="620" y2="134"/></g>
+                <path d="M0 124 C38 119 45 103 83 108 S150 84 186 91 S252 112 289 78 S355 87 392 60 S454 69 496 40 S562 55 620 18 L620 153 L0 153 Z" fill="url(#chartFill)"/>
+                <path d="M0 124 C38 119 45 103 83 108 S150 84 186 91 S252 112 289 78 S355 87 392 60 S454 69 496 40 S562 55 620 18" fill="none" stroke="var(--brand)" stroke-width="2.5" stroke-linecap="round"/>
+                <circle cx="620" cy="18" r="4.5" fill="var(--brand)" stroke="white" stroke-width="2"/>
+              </svg><div class="chart-labels"><span>May</span><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span></div>
+            </div>
+          </article>
+          <article class="panel">
+            <div class="panel-head"><div><div class="panel-title">Today across the campuses</div><div class="panel-subtitle">Friday, October 30 · Somers, Bridgeport, Haverhill, Pawtucket</div></div><button class="button small" data-route-button="schedule">View calendar <i data-lucide="arrow-up-right"></i></button></div>
+            <div class="panel-body schedule-list"><div class="schedule-item"><span class="schedule-time">7:00 AM</span><span class="schedule-bar "></span><div class="schedule-detail"><strong>Yard practice · CDL program</strong><span>Somers · backing and coupling</span></div><span class="schedule-tag">In session</span></div><div class="schedule-item"><span class="schedule-time">9:00 AM</span><span class="schedule-bar amber"></span><div class="schedule-detail"><strong>HVAC/R lab · refrigerant handling</strong><span>Somers · HVAC/R cohort</span></div><span class="schedule-tag">In session</span></div><div class="schedule-item"><span class="schedule-time">1:00 PM</span><span class="schedule-bar rose"></span><div class="schedule-detail"><strong>Campus tour · 5 prospective students</strong><span>Haverhill · first week at the new campus</span></div><span class="schedule-tag">Confirmed</span></div><div class="schedule-item"><span class="schedule-time">3:00 PM</span><span class="schedule-bar "></span><div class="schedule-detail"><strong>Class B road test day</strong><span>Pawtucket · 4 students testing</span></div><span class="schedule-tag">Confirmed</span></div></div>
+          </article>
+        </div>
+        <div class="bottom-grid">
+          <article class="panel"><div class="panel-head"><div><div class="panel-title">Recent activity</div><div class="panel-subtitle">The latest updates from your team</div></div><button class="button small" data-action="activity">View all</button></div><div class="panel-body activity-list"><div class="activity-item"><div class="activity-icon"><i data-lucide="file-check-2"></i></div><div class="activity-copy"><p><strong>Marcus Reed</strong> signed the enrollment agreement for the CDL program.</p><span>7 minutes ago</span></div></div><div class="activity-item"><div class="activity-icon"><i data-lucide="user-plus"></i></div><div class="activity-copy"><p>New enquiry from <strong>Sophia Turner</strong> asking about evening CDL-160 classes in Bridgeport.</p><span>26 minutes ago</span></div></div><div class="activity-item"><div class="activity-icon"><i data-lucide="award"></i></div><div class="activity-copy"><p><strong>Olivia Brooks</strong> passed the Class A road test. Placement team notified.</p><span>1 hour ago</span></div></div><div class="activity-item"><div class="activity-icon"><i data-lucide="calendar-check"></i></div><div class="activity-copy"><p><strong>Class-start reminders</strong> texted to 19 students starting Monday.</p><span>2 hours ago</span></div></div></div></article>
+          <article class="panel"><div class="panel-head"><div><div class="panel-title">Follow-up needed</div><div class="panel-subtitle">A few things to keep moving</div></div><span class="status pending">3 items</span></div><div class="panel-body"><div class="activity-item"><div class="activity-icon"><i data-lucide="file-warning"></i></div><div class="activity-copy"><p><strong>Ethan Collins</strong><br>Payment plan 5 days late</p><span>CDL-160 · Bridgeport</span></div><button class="button small" data-action="remind">Remind</button></div><div class="activity-item"><div class="activity-icon"><i data-lucide="file-question"></i></div><div class="activity-copy"><p><strong>24 aid & VA files</strong><br>Missing documents</p><span>FAFSA, VA Chapter 31/33, Career Choice</span></div><button class="button small" data-route-button="jobs">Review</button></div><div class="activity-item"><div class="activity-icon"><i data-lucide="calendar-clock"></i></div><div class="activity-copy"><p><strong>Next starts</strong><br>17 seats still open</p><span>Somers and Haverhill</span></div><button class="button small" data-route-button="schedule">Review</button></div></div></article>
+        </div>
+      </section>
+      <section class="module" data-module="customers">
+        <div class="page-head"><div><div class="eyebrow">Students &amp; applicants</div><h1>Students</h1><p>Every student, aid file, yard hour and road test across Connecticut, Massachusetts and Rhode Island in one place.</p></div><button class="button primary" data-action="add-customer"><i data-lucide="plus"></i>Add student</button></div>
+        <div class="toolbar"><div class="toolbar-left"><label class="search-inline"><i data-lucide="search"></i><input id="customerSearch" placeholder="Search students..." aria-label="Search"></label><select class="input-control" id="customerStatus"><option value="all">All statuses</option><option>Enrolled</option><option>Applicant</option><option>Funding</option><option>Graduate</option><option>Overdue</option></select></div><div class="toolbar-right"><button class="button" data-action="export"><i data-lucide="download"></i>Export</button><button class="button" data-action="filter"><i data-lucide="list-filter"></i>Filters</button></div></div>
+        <article class="panel"><div class="table-wrap"><table id="customersTable"><thead><tr><th>Student</th><th>Program</th><th>Campus</th><th>Last activity</th><th>Tuition</th><th>Status</th><th></th></tr></thead><tbody><tr class="clickable" data-customer="emily"><td><div class="person-cell"><div class="person-avatar ">EC</div><div><strong>Emily Carter</strong><small>emily.carter@email.com</small></div></div></td><td>CDL program</td><td>Somers</td><td>Today, 9:00 AM</td><td>$12,795</td><td><span class="status paid">Enrolled</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="marcus"><td><div class="person-cell"><div class="person-avatar tan">MR</div><div><strong>Marcus Reed</strong><small>marcus.reed@email.com</small></div></div></td><td>CDL program</td><td>Bridgeport</td><td>Yesterday</td><td>$12,795</td><td><span class="status pending">Funding</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="sophia"><td><div class="person-cell"><div class="person-avatar lilac">ST</div><div><strong>Sophia Turner</strong><small>sophia.turner@email.com</small></div></div></td><td>CDL-160</td><td>Bridgeport</td><td>Oct 28, 2026</td><td>$0</td><td><span class="status pending">Applicant</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="jordan"><td><div class="person-cell"><div class="person-avatar gold">JH</div><div><strong>Jordan Hayes</strong><small>jordan.hayes@email.com</small></div></div></td><td>HVAC/R technician</td><td>Somers</td><td>Oct 27, 2026</td><td>$14,950</td><td><span class="status paid">Enrolled</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="olivia"><td><div class="person-cell"><div class="person-avatar rose">OB</div><div><strong>Olivia Brooks</strong><small>olivia.brooks@email.com</small></div></div></td><td>CDL program</td><td>Pawtucket</td><td>Oct 23, 2026</td><td>$12,795</td><td><span class="status pending">Graduate</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="ethan"><td><div class="person-cell"><div class="person-avatar ">EC</div><div><strong>Ethan Collins</strong><small>ethan.collins@email.com</small></div></div></td><td>CDL-160</td><td>Bridgeport</td><td>Oct 21, 2026</td><td>$6,595</td><td><span class="status overdue">Overdue</span></td><td><i data-lucide="chevron-right"></i></td></tr><tr class="clickable" data-customer="grace"><td><div class="person-cell"><div class="person-avatar tan">GM</div><div><strong>Grace Mitchell</strong><small>grace.mitchell@email.com</small></div></div></td><td>Heavy Straight Truck (Class B)</td><td>Haverhill</td><td>Oct 19, 2026</td><td>$3,695</td><td><span class="status paid">Enrolled</span></td><td><i data-lucide="chevron-right"></i></td></tr></tbody></table></div><div class="table-foot"><span id="customerCount">Showing 7 of 2640 students</span><div class="pagination"><button class="page-num current">1</button><button class="page-num" data-action="page">2</button><button class="page-num" data-action="page">3</button><button class="page-num" data-action="page"><i data-lucide="chevron-right" style="width:12px"></i></button></div></div></article>
+      </section>
+      <section class="module" data-module="schedule">
+        <div class="page-head"><div><div class="eyebrow">Classes, yard &amp; road</div><h1>Class schedule</h1><p>Every classroom session, yard slot, road drive, HVAC/R lab and test across the four campuses.</p></div><button class="button primary" data-action="new-booking"><i data-lucide="plus"></i>New class</button></div>
+        <div class="panel calendar-panel"><div class="calendar-toolbar"><div style="display:flex;align-items:center;gap:10px"><button class="icon-button" data-action="previous-week" aria-label="Previous week"><i data-lucide="chevron-left"></i></button><button class="icon-button" data-action="next-week" aria-label="Next week"><i data-lucide="chevron-right"></i></button><strong id="calendarWeek">Oct 26 – Nov 1, 2026</strong></div><div style="display:flex;gap:8px"><button class="button small" data-action="today">Today</button><select class="select-mini" aria-label="Calendar view"><option>Week view</option><option>Day view</option></select></div></div>
+          <div class="calendar-scroll"><div class="calendar-grid" id="calendarGrid"><div class="day-head"></div><div class="day-head">MON<strong>26</strong></div><div class="day-head">TUE<strong>27</strong></div><div class="day-head">WED<strong>28</strong></div><div class="day-head">THU<strong>29</strong></div><div class="day-head today">FRI<strong>30</strong></div><div class="day-head">SAT<strong>31</strong></div><div class="day-head">SUN<strong>1</strong></div><div class="time-label">8 AM</div><div class="calendar-cell"><div class="event "><strong>8:00 AM · Somers</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event rose"><strong>8:00 AM · Bridgeport</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event rose"><strong>8:00 AM · Haverhill</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="time-label">9 AM</div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event "><strong>9:00 AM · Pawtucket</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event rose"><strong>9:00 AM · Somers</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="time-label">10 AM</div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event "><strong>10:00 AM · Bridgeport</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event "><strong>10:00 AM · Haverhill</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="time-label">1 PM</div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event gold"><strong>1:00 PM · Pawtucket</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event "><strong>1:00 PM · Somers</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="time-label">5 PM</div><div class="calendar-cell"><div class="event gold"><strong>5:00 PM · Bridgeport</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event gold"><strong>5:00 PM · Haverhill</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="time-label">6 PM</div><div class="calendar-cell"><div class="event rose"><strong>6:00 PM · Pawtucket</strong>HVAC/R lab</div></div><div class="calendar-cell"></div><div class="calendar-cell"><div class="event gold"><strong>6:00 PM · Somers</strong>CDL-160</div></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div><div class="calendar-cell"></div></div></div><div class="calendar-legend"><span><i class="legend-dot" style="background:#5A9A7A"></i>Yard &amp; road</span><span><i class="legend-dot" style="background:#D5A44D"></i>Classroom &amp; lab</span><span><i class="legend-dot" style="background:#CF8585"></i>Testing &amp; tours</span></div>
+        </div>
+        <div class="dashboard-grid" style="margin-top:17px"><article class="panel"><div class="panel-head"><div class="panel-title">This week at a glance</div><span class="status active-status">142 sessions</span></div><div class="panel-body"><div class="mini-stat"><span>Yard &amp; road sessions</span><strong>92</strong></div><div class="mini-stat"><span>Classroom &amp; lab sessions</span><strong>41</strong></div><div class="mini-stat"><span>Road tests this week</span><strong>21</strong></div></div></article><article class="panel"><div class="panel-head"><div class="panel-title">Seats in the next starts</div><button class="button small" data-action="availability">Manage</button></div><div class="panel-body"><p style="font-size:12px;color:var(--muted);margin:0 0 12px">Next starts Monday, Nov 9 in Somers and Haverhill. 17 seats left.</p><div style="height:7px;background:#EDF1EE;border-radius:9px;overflow:hidden"><div style="height:100%;width:71%;background:var(--brand);border-radius:9px"></div></div><div style="display:flex;justify-content:space-between;margin-top:8px;font-size:10px;color:var(--muted)"><span>71% filled</span><span>17 seats left</span></div></div></article></div>
+      </section>
+      <section class="module" data-module="jobs">
+        <div class="page-head"><div><div class="eyebrow">From enquiry to licensed driver</div><h1>Enrollment pipeline</h1><p>See every applicant move from first enquiry to funding, enrolled and licensed or certified.</p></div><button class="button primary" data-action="new-job"><i data-lucide="plus"></i>New applicant</button></div>
+        <div class="toolbar"><div class="toolbar-left"><button class="button subtle"><i data-lucide="kanban"></i>Board view</button><button class="button" data-action="job-list"><i data-lucide="list"></i>List view</button><select class="input-control"><option>All programs</option><option>CDL program</option><option>CDL-160</option><option>Heavy Straight Truck (Class B)</option><option>HVAC/R technician</option></select></div><div class="toolbar-right"><span style="font-size:11px;color:var(--muted)">7 students in progress</span></div></div>
+        <div class="kanban" id="kanbanBoard"><div class="kanban-col" data-status="Enquiry"><div class="kanban-head">Enquiry <span>2</span></div><article class="job-card" draggable="true" data-job="Ava Johnson · Haverhill"><div class="job-type">CDL program</div><h4>Ava Johnson · Haverhill</h4><p>Website form · asked about aid</p><div class="job-meta"><span>Today</span><strong>$12,795</strong></div></article><article class="job-card" draggable="true" data-job="Sophia Turner · Bridgeport"><div class="job-type">CDL-160</div><h4>Sophia Turner · Bridgeport</h4><p>Wants evening classes</p><div class="job-meta"><span>Yesterday</span><strong>$6,595</strong></div></article></div><div class="kanban-col" data-status="Funding"><div class="kanban-head">Funding <span>2</span></div><article class="job-card" draggable="true" data-job="Marcus Reed · Bridgeport"><div class="job-type">CDL program</div><h4>Marcus Reed · Bridgeport</h4><p>FAFSA done · verification pending</p><div class="job-meta"><span>Due Nov 4</span><strong>$12,795</strong></div></article><article class="job-card" draggable="true" data-job="Noah Bennett · Somers"><div class="job-type">HVAC/R technician</div><h4>Noah Bennett · Somers</h4><p>VA Chapter 33 certification</p><div class="job-meta"><span>Due Nov 5</span><strong>$14,950</strong></div></article></div><div class="kanban-col" data-status="Enrolled"><div class="kanban-head">Enrolled <span>3</span></div><article class="job-card" draggable="true" data-job="Emily Carter · Somers"><div class="job-type">CDL program</div><h4>Emily Carter · Somers</h4><p>Day class · week 11</p><div class="job-meta"><span>Started Aug 17</span><strong>$12,795</strong></div></article><article class="job-card" draggable="true" data-job="Jordan Hayes · Somers"><div class="job-type">HVAC/R technician</div><h4>Jordan Hayes · Somers</h4><p>EPA exam booked</p><div class="job-meta"><span>Started Sep 8</span><strong>$14,950</strong></div></article><article class="job-card" draggable="true" data-job="Grace Mitchell · Haverhill"><div class="job-type">Heavy Straight Truck (Class B)</div><h4>Grace Mitchell · Haverhill</h4><p>Career Choice</p><div class="job-meta"><span>Started Oct 26</span><strong>$3,695</strong></div></article></div><div class="kanban-col" data-status="Licensed"><div class="kanban-head">Licensed <span>1</span></div><article class="job-card" draggable="true" data-job="Olivia Brooks · Pawtucket"><div class="job-type">CDL program</div><h4>Olivia Brooks · Pawtucket</h4><p>Class A issued · placed with a carrier</p><div class="job-meta"><span>Completed Oct 23</span><strong>$12,795</strong></div></article></div></div><p style="font-size:10px;color:var(--muted);margin:8px 0 0"><i data-lucide="move-horizontal" style="width:13px;height:13px;vertical-align:middle"></i> Tip: drag a card to another column to update its status.</p>
+      </section>
+      <section class="module" data-module="invoices">
+        <div class="page-head"><div><div class="eyebrow">Get paid, stay on track</div><h1>Tuition &amp; payments</h1><p>Tuition, federal aid, VA benefits, Career Choice and payment plans, tracked per student automatically.</p></div><button class="button primary" data-action="new-invoice"><i data-lucide="plus"></i>New invoice</button></div>
+        <div class="metrics"><article class="metric"><div class="metric-top"><span>Collected this month</span><span class="metric-icon"><i data-lucide="badge-check"></i></span></div><div class="metric-value">$612,400</div><div class="metric-foot"><span class="trend">↑ 6.9%</span> from September</div></article><article class="metric"><div class="metric-top"><span>On payment plans</span><span class="metric-icon"><i data-lucide="clock-3"></i></span></div><div class="metric-value">$52,700</div><div class="metric-foot">58 students, no late fees</div></article><article class="metric"><div class="metric-top"><span>Overdue</span><span class="metric-icon"><i data-lucide="alert-circle"></i></span></div><div class="metric-value">$1,060</div><div class="metric-foot"><span style="color:var(--danger);font-weight:650">3 installments</span> past due</div></article><article class="metric"><div class="metric-top"><span>Sponsored seats</span><span class="metric-icon"><i data-lucide="building-2"></i></span></div><div class="metric-value">27</div><div class="metric-foot">VA and Career Choice</div></article></div>
+        <div class="invoice-layout"><article class="panel"><div class="panel-head"><div class="panel-title">Recent invoices</div><button class="button small" data-action="invoice-filter"><i data-lucide="list-filter"></i>Filter</button></div><div class="table-wrap"><table id="invoiceTable"><thead><tr><th>Invoice</th><th>Student</th><th>Due date</th><th>Amount</th><th>Status</th></tr></thead><tbody><tr class="clickable" data-invoice="INV-8421"><td><strong style="color:var(--ink)">INV-8421</strong><small style="display:block;color:#96A099;margin-top:4px">Oct 28, 2026</small></td><td>Marcus Reed</td><td>Nov 4, 2026</td><td>$12,795.00</td><td><span class="status pending">Unpaid</span></td></tr><tr class="clickable" data-invoice="INV-8419"><td><strong style="color:var(--ink)">INV-8419</strong><small style="display:block;color:#96A099;margin-top:4px">Oct 26, 2026</small></td><td>Grace Mitchell</td><td>Nov 25, 2026</td><td>$3,695.00</td><td><span class="status pending">Unpaid</span></td></tr><tr class="clickable" data-invoice="INV-8412"><td><strong style="color:var(--ink)">INV-8412</strong><small style="display:block;color:#96A099;margin-top:4px">Oct 15, 2026</small></td><td>Ethan Collins</td><td>Oct 25, 2026</td><td>$350.00</td><td><span class="status overdue">Overdue</span></td></tr><tr class="clickable" data-invoice="INV-8416"><td><strong style="color:var(--ink)">INV-8416</strong><small style="display:block;color:#96A099;margin-top:4px">Oct 20, 2026</small></td><td>Jordan Hayes</td><td>Oct 27, 2026</td><td>$1,200.00</td><td><span class="status paid">Paid</span></td></tr><tr class="clickable" data-invoice="INV-8410"><td><strong style="color:var(--ink)">INV-8410</strong><small style="display:block;color:#96A099;margin-top:4px">Oct 12, 2026</small></td><td>Noah Bennett</td><td>Nov 11, 2026</td><td>$14,950.00</td><td><span class="status pending">Unpaid</span></td></tr></tbody></table></div><div class="table-foot"><span>Showing 5 of 186 invoices</span><button class="button small" data-action="all-invoices">View all invoices <i data-lucide="arrow-right"></i></button></div></article>
+          <aside class="invoice-preview" id="invoicePreview"><div class="invoice-brand"><div><strong>New England Tractor Trailer Training School</strong><small>Somers, CT · CDL and HVAC/R training since 1965</small></div><div class="invoice-word">INVOICE</div></div><div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:22px"><strong style="font-size:12px" id="previewInvoiceId">INV-8421</strong><span class="status pending" id="previewStatus">Unpaid</span></div><div class="invoice-meta"><div><label>Bill to</label><strong id="previewCustomer">Marcus Reed<br>CDL program</strong></div><div><label>Invoice date</label><strong id="previewDate">Oct 28, 2026<br>Due Nov 4, 2026</strong></div></div><table class="invoice-lines"><thead><tr><th>DESCRIPTION</th><th style="text-align:right">AMOUNT</th></tr></thead><tbody><tr><td id="previewDescription">CDL program · federal aid disbursement pending</td><td id="previewAmount" style="text-align:right;color:var(--ink)">$12,795.00</td></tr></tbody></table><div class="invoice-total"><div><span>Subtotal</span><span id="previewSubtotal">$12,795.00</span></div><div><span>Tax</span><span>$0.00</span></div><div class="grand"><span>Total</span><span id="previewTotal">$12,795.00</span></div></div><p style="font-size:10px;color:var(--muted);margin-top:28px;padding-top:14px;border-top:1px solid var(--border)">Thank you for training with us. Questions about your balance or aid? Just reply to this email.</p><button class="button" style="width:100%;margin-top:10px" data-action="download-invoice"><i data-lucide="download"></i>Download preview</button></aside>
+        </div>
+      </section>
+      <section class="module" data-module="automations">
+        <div class="page-head"><div><div class="eyebrow">Less chasing, more doing</div><h1>Automations</h1><p>The admissions, aid paperwork, class-start and payment chasing your campus teams handle by hand, running on their own.</p></div><button class="button primary" data-action="new-automation"><i data-lucide="plus"></i>New automation</button></div>
+        <div class="metrics"><article class="metric"><div class="metric-top"><span>Active workflows</span><span class="metric-icon"><i data-lucide="workflow"></i></span></div><div class="metric-value" id="activeWorkflowCount">5</div><div class="metric-foot">Students, payments and documents</div></article><article class="metric"><div class="metric-top"><span>Tasks completed</span><span class="metric-icon"><i data-lucide="check-check"></i></span></div><div class="metric-value">1,284</div><div class="metric-foot"><span class="trend">↑ 18%</span> this month</div></article><article class="metric"><div class="metric-top"><span>Time saved</span><span class="metric-icon"><i data-lucide="timer"></i></span></div><div class="metric-value">46 hrs</div><div class="metric-foot">Estimated this month</div></article><article class="metric"><div class="metric-top"><span>Needs attention</span><span class="metric-icon"><i data-lucide="shield-alert"></i></span></div><div class="metric-value">1</div><div class="metric-foot">Review connection status</div></article></div>
+        <div class="toolbar"><div class="toolbar-left"><span style="font-size:12px;font-weight:650">Your workflows</span><span class="status active-status">Live status</span></div><div class="toolbar-right"><select class="input-control"><option>All workflows</option><option>Active only</option><option>Paused</option></select></div></div>
+        <div class="workflow-grid"><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="mail-check"></i></div><input class="toggle" type="checkbox" checked aria-label="Toggle New enquiry response"></div><h3>New enquiry response</h3><p>Replies to every enquiry with the nearest campus, start dates, day or evening options and aid information.</p><div class="workflow-meta"><span>On new enquiry</span><strong>176 this month</strong></div></article><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="file-check"></i></div><input class="toggle" type="checkbox" checked aria-label="Toggle Aid &amp; VA paperwork chaser"></div><h3>Aid &amp; VA paperwork chaser</h3><p>Nudges applicants until FAFSA, VA or Career Choice paperwork is complete.</p><div class="workflow-meta"><span>Every 3 days until complete</span><strong>63 open files</strong></div></article><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="calendar-clock"></i></div><input class="toggle" type="checkbox" checked aria-label="Toggle Class-start reminder"></div><h3>Class-start reminder</h3><p>Texts each new student their campus, start time and what to bring.</p><div class="workflow-meta"><span>3 days + 1 day before start</span><strong>19 this week</strong></div></article><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="receipt"></i></div><input class="toggle" type="checkbox" checked aria-label="Toggle Payment plan reminder"></div><h3>Payment plan reminder</h3><p>Friendly reminder 2 days before each installment, with a pay link and no late fees.</p><div class="workflow-meta"><span>2 days before due</span><strong>58 on plans</strong></div></article><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="award"></i></div><input class="toggle" type="checkbox" checked aria-label="Toggle Road test prep"></div><h3>Road test prep</h3><p>Sends test-day details and checks yard and road hours before each test.</p><div class="workflow-meta"><span>5 days before test</span><strong>21 this week</strong></div></article><article class="panel workflow-card"><div class="workflow-top"><div class="workflow-icon"><i data-lucide="briefcase"></i></div><input class="toggle" type="checkbox" aria-label="Toggle Graduate placement follow-up"></div><h3>Graduate placement follow-up</h3><p>Sends licensed and certified graduates to employers and logs each hire.</p><div class="workflow-meta"><span>After licensing</span><strong>74 this quarter</strong></div></article></div>
+        <div class="section-intro"><div><div class="eyebrow">Designed around New England Tractor Trailer Training School</div><h2>Automations we would build for you</h2><p>Based on how NETTTS runs today: a family business since 1965, four campuses in Somers, Bridgeport, Haverhill and Pawtucket, CDL, CDL-160, Class B and HVAC/R programs, and students using federal aid, VA benefits, Career Choice and payment plans. Each workflow is built in plain code inside your own system. Press Run demo to watch one play out.</p></div></div><div class="recipe-list"><article class="panel recipe"><div class="recipe-head"><div><div class="recipe-kicker">Admissions</div><h3>Website enquiry → nearest campus → enrolled</h3><p>Every enquiry gets an answer the same day from the right campus, with day and evening options, so seats fill without phone tag.</p></div><button class="button small subtle" data-run-recipe="0"><i data-lucide="play"></i>Run demo</button></div><div class="flow"><div class="flow-step"><span class="flow-icon"><i data-lucide="mail-check"></i></span><div><span class="flow-kind">Trigger</span><strong>Enquiry from the website</strong><small>Program, town and schedule captured</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="map-pin"></i></span><div><span class="flow-kind">Route</span><strong>Sent to the nearest campus</strong><small>Somers, Bridgeport, Haverhill or Pawtucket</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="calendar-check"></i></span><div><span class="flow-kind">Book</span><strong>Campus tour offered</strong><small>Times from that campus calendar</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="badge-check"></i></span><div><span class="flow-kind">Enrolled</span><strong>Enrollment agreement signed</strong><small>Welcome text with start date</small></div></div></div><div class="recipe-foot"><span><i data-lucide="timer"></i> Saves admissions hours of callbacks each week</span><span class="recipe-apps"><span class="app-chip">Website forms</span><span class="app-chip">Text messaging</span><span class="app-chip">E-signature</span></span></div></article><article class="panel recipe"><div class="recipe-head"><div><div class="recipe-kicker">Funding</div><h3>Aid file opened → documents chased → approved</h3><p>Federal aid, VA Chapter 31 and 33 and Career Choice each need different paperwork; the system asks for exactly what’s missing.</p></div><button class="button small subtle" data-run-recipe="1"><i data-lucide="play"></i>Run demo</button></div><div class="flow"><div class="flow-step"><span class="flow-icon"><i data-lucide="file-plus"></i></span><div><span class="flow-kind">Trigger</span><strong>Student picks how they’ll pay</strong><small>Aid, VA, Career Choice or plan</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="list-checks"></i></span><div><span class="flow-kind">Checklist</span><strong>Required documents listed</strong><small>Specific to that funding source</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="bell"></i></span><div><span class="flow-kind">Chase</span><strong>Reminders until complete</strong><small>Text and email every 3 days</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="badge-check"></i></span><div><span class="flow-kind">Approved</span><strong>Financial aid signs off</strong><small>Start date confirmed</small></div></div></div><div class="recipe-foot"><span><i data-lucide="timer"></i> Cuts the back-and-forth with financial aid</span><span class="recipe-apps"><span class="app-chip">Student records</span><span class="app-chip">Gmail</span><span class="app-chip">Text messaging</span></span></div></article><article class="panel recipe"><div class="recipe-head"><div><div class="recipe-kicker">Training</div><h3>Yard hours, road time and tests tracked per student</h3><p>Instructors log hours in one place across all campuses, and students who fall behind get extra time before test day.</p></div><button class="button small subtle" data-run-recipe="2"><i data-lucide="play"></i>Run demo</button></div><div class="flow"><div class="flow-step"><span class="flow-icon"><i data-lucide="clock"></i></span><div><span class="flow-kind">Trigger</span><strong>Instructor logs yard or road time</strong><small>Backing, coupling, pre-trip</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="trending-up"></i></span><div><span class="flow-kind">Track</span><strong>Progress against the program</strong><small>Hours toward 160 or 600</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="alert-triangle"></i></span><div><span class="flow-kind">Flag</span><strong>Behind schedule?</strong><small>Extra yard slot booked</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="award"></i></span><div><span class="flow-kind">Test</span><strong>Road test booked</strong><small>Result recorded on the student</small></div></div></div><div class="recipe-foot"><span><i data-lucide="timer"></i> Keeps every cohort on track to test</span><span class="recipe-apps"><span class="app-chip">Student records</span><span class="app-chip">Google Calendar</span><span class="app-chip">Text messaging</span></span></div></article><article class="panel recipe"><div class="recipe-head"><div><div class="recipe-kicker">Graduates</div><h3>Licensed or certified → sent to employers → hire logged</h3><p>CDL and HVAC/R graduates go straight to hiring employers, and placement numbers stay current for each campus.</p></div><button class="button small subtle" data-run-recipe="3"><i data-lucide="play"></i>Run demo</button></div><div class="flow"><div class="flow-step"><span class="flow-icon"><i data-lucide="award"></i></span><div><span class="flow-kind">Trigger</span><strong>Student licensed or certified</strong><small>CDL or EPA certification on file</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="briefcase"></i></span><div><span class="flow-kind">Share</span><strong>Profile sent to employers</strong><small>Carriers and HVAC contractors</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="handshake"></i></span><div><span class="flow-kind">Hired</span><strong>Placement logged</strong><small>Employer and start date</small></div></div><span class="flow-arrow"><i data-lucide="chevron-right"></i></span><div class="flow-step"><span class="flow-icon"><i data-lucide="star"></i></span><div><span class="flow-kind">Review</span><strong>Google review request</strong><small>Sent after the first week</small></div></div></div><div class="recipe-foot"><span><i data-lucide="timer"></i> Keeps every campus’s placement record current</span><span class="recipe-apps"><span class="app-chip">Student records</span><span class="app-chip">Gmail</span><span class="app-chip">Google Business</span></span></div></article></div>
+      </section>
+      <section class="module" data-module="integrations">
+        <div class="page-head"><div><div class="eyebrow">Your tools, working together</div><h1>Integrations</h1><p>Connect the apps your team already uses. Keep data in sync without duplicate work.</p></div><button class="button" data-action="integration-help"><i data-lucide="book-open"></i>Integration guide</button></div>
+        <div class="toolbar"><div class="toolbar-left"><span style="font-size:12px;font-weight:650">Available connections</span><span class="status active-status">4 connected</span></div><div class="toolbar-right"><label class="search-inline"><i data-lucide="search"></i><input id="integrationSearch" placeholder="Find an integration..." aria-label="Find an integration"></label></div></div>
+        <div class="integration-grid"><article class="panel integration-card" data-integration="Website enquiry forms"><div class="integration-top"><div class="integration-logo" style="color:#1F6FB2">WEB</div><span class="status active-status">Connected</span></div><h3>Website enquiry forms</h3><p>Enquiries and tour requests land straight in admissions.</p><button class="button" data-connect="Website enquiry forms">Manage connection</button></article><article class="panel integration-card" data-integration="Enrollment Manager"><div class="integration-top"><div class="integration-logo" style="color:#4F46E5">EM</div><span class="status active-status">Connected</span></div><h3>Enrollment Manager</h3><p>Your current enrollment records. Synced until you switch over.</p><button class="button" data-connect="Enrollment Manager">Manage connection</button></article><article class="panel integration-card" data-integration="Gmail"><div class="integration-top"><div class="integration-logo" style="color:#C65045">M</div><span class="status active-status">Connected</span></div><h3>Gmail</h3><p>Applicant and student emails from one place.</p><button class="button" data-connect="Gmail">Manage connection</button></article><article class="panel integration-card" data-integration="Google Calendar"><div class="integration-top"><div class="integration-logo" style="color:#3974D8">31</div><span class="status active-status">Connected</span></div><h3>Google Calendar</h3><p>Class, yard and road test schedules per campus.</p><button class="button" data-connect="Google Calendar">Manage connection</button></article><article class="panel integration-card" data-integration="QuickBooks"><div class="integration-top"><div class="integration-logo" style="color:#2D9B62">qb</div><span class="status neutral">Not connected</span></div><h3>QuickBooks</h3><p>Sync tuition, refunds and sponsor payments.</p><button class="button primary" data-connect="QuickBooks">Connect</button></article><article class="panel integration-card" data-integration="Google Business"><div class="integration-top"><div class="integration-logo" style="color:#C65045">G</div><span class="status neutral">Not connected</span></div><h3>Google Business</h3><p>Review requests for each campus.</p><button class="button primary" data-connect="Google Business">Connect</button></article>
+          <article class="panel hub-card"><div class="panel-head"><div><div class="panel-title">How your tools connect</div><div class="panel-subtitle">Your system sits in the middle. The tools NETTTS already uses keep working, and data moves between them on its own.</div></div><span class="status active-status">Live sync</span></div><div class="panel-body hub"><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#1F6FB2">WEB</span><strong>Website enquiry forms</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-right"></i><small>Enquiries and tour requests</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Admissions pipeline, by campus</span></div></div><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#4F46E5">EM</span><strong>Enrollment Manager</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-left-right"></i><small>Student and enrollment records</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Synced until you switch over</span></div></div><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#0F766E">FA</span><strong>Financial aid &amp; VA</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-right"></i><small>Aid awards, VA and Career Choice approvals</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Funding checklist ticked off</span></div></div><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#111827">$</span><strong>Card payments</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-right"></i><small>Tuition and plan installments</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Student balance updated</span></div></div><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#2D9B62">qb</span><strong>QuickBooks</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-left"></i><small>Tuition, refunds and sponsor payments</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Books stay in sync</span></div></div><div class="hub-row"><div class="hub-app"><span class="integration-logo" style="color:#3974D8">31</span><strong>Google Calendar</strong></div><div class="hub-line"><span class="hub-pulse"></span><i data-lucide="arrow-left-right"></i><small>Classes, yard slots and road tests</small></div><div class="hub-core"><span class="brand-mark">NE</span><span>Each campus schedule</span></div></div></div></article>
+          <article class="panel migration-card"><div><div style="display:flex;align-items:center;gap:9px;margin-bottom:11px;color:var(--brand)"><i data-lucide="arrow-left-right"></i><span style="font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.8px">Switch without starting over</span></div><h3>Moving from your current platforms?</h3><p>Bring students, enrollment forms, payment plans and message history into one organized workspace. We map your current setup before anything moves, so nothing is lost.</p><div class="migration-logos"><span>Enrollment Manager</span><span>Spreadsheets</span><span>Shared inboxes</span></div></div><button class="button primary" data-action="migration"><i data-lucide="arrow-right"></i>Plan a migration</button></article>
+        </div>
+      </section>
+      <section class="module" data-module="settings">
+        <div class="page-head"><div><div class="eyebrow">Make it yours</div><h1>Workspace settings</h1><p>Manage your business profile, team access and brand identity.</p></div><button class="button primary" data-action="save-settings"><i data-lucide="check"></i>Save changes</button></div>
+        <div class="settings-grid">
+          <div class="panel settings-card"><h3>Business profile</h3><p>These details appear on student emails, receipts and certificates.</p>
+            <div class="form-grid"><div class="form-field"><label for="businessName">Business name</label><input class="input-control" id="businessName" value="New England Tractor Trailer Training School"></div><div class="form-field"><label for="businessCity">City / location</label><input class="input-control" id="businessCity" value="Somers, CT"></div></div>
+            <div class="form-grid"><div class="form-field"><label for="businessEmail">Business email</label><input class="input-control" id="businessEmail" type="email" value="admissions@yourschool.com"></div><div class="form-field"><label for="businessPhone">Phone number</label><input class="input-control" id="businessPhone" value="(860) 555-0100"></div></div>
+            <div class="form-field"><label for="businessAddress">Business address</label><input class="input-control" id="businessAddress" value="Somers, CT"></div>
+            <div class="form-field"><label for="businessDescription">Short description</label><textarea class="input-control" id="businessDescription" rows="3" style="resize:vertical">Family-run CDL and HVAC/R training school founded in 1965, with campuses in Somers, Bridgeport, Haverhill and Pawtucket.</textarea></div>
+            <button class="button primary" data-action="save-settings">Save business profile</button>
+          </div>
+          <div style="display:grid;gap:15px">
+            <div class="panel settings-card"><h3>Brand appearance</h3><p>Choose an accent that matches your business identity.</p><div style="font-size:11px;font-weight:650">Brand colour</div><div class="color-row"><button class="swatch selected" style="background:#1F6FB2" data-color="#1F6FB2" aria-label="Colour #1F6FB2"></button><button class="swatch" style="background:#315C8C" data-color="#315C8C" aria-label="Colour #315C8C"></button><button class="swatch" style="background:#B85C38" data-color="#B85C38" aria-label="Colour #B85C38"></button><button class="swatch" style="background:#147D64" data-color="#147D64" aria-label="Colour #147D64"></button><button class="swatch" style="background:#6D7568" data-color="#6D7568" aria-label="Colour #6D7568"></button><input class="brand-custom" type="color" id="customBrand" value="#1F6FB2" aria-label="Choose custom brand colour"></div><div class="form-field"><label for="logoInitials">Logo initials</label><input class="input-control" id="logoInitials" value="NE" maxlength="4"></div><div class="form-field"><label for="dateFormat">Date format</label><select class="input-control" id="dateFormat"><option>MM/DD/YYYY</option><option>MMM D, YYYY</option><option>YYYY-MM-DD</option></select></div></div>
+            <div class="panel settings-card"><h3>Team members</h3><p>People with access to this workspace.</p><div class="team-row"><div class="person-avatar ">AT</div><div class="team-info"><strong>Admissions Team</strong><small>admissions@yourschool.com</small></div><span class="team-role">Admissions</span></div><div class="team-row"><div class="person-avatar tan">RS</div><div class="team-info"><strong>Rachel Simmons</strong><small>rachel@yourschool.com</small></div><span class="team-role">Financial aid</span></div><div class="team-row"><div class="person-avatar lilac">DM</div><div class="team-info"><strong>David Morgan</strong><small>david@yourschool.com</small></div><span class="team-role">Campus director</span></div><button class="button" style="width:100%;margin-top:15px" data-action="invite-team"><i data-lucide="user-plus"></i>Invite team member</button></div>
+          </div>
+        </div>
+      </section>
+      <footer class="footer">Concept preview prepared for New England Tractor Trailer Training School by Lotus Automations · Sample data for illustration only</footer>
+    </div>
+  </main>
+  <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation"><a class="nav-link active" href="#dashboard" data-route="dashboard"><i data-lucide="layout-dashboard"></i><span>Home</span></a><a class="nav-link" href="#customers" data-route="customers"><i data-lucide="graduation-cap"></i><span>Students</span></a><a class="nav-link" href="#schedule" data-route="schedule"><i data-lucide="calendar-days"></i><span>Classes</span></a><a class="nav-link" href="#jobs" data-route="jobs"><i data-lucide="kanban"></i><span>Pipeline</span></a><a class="nav-link" href="#invoices" data-route="invoices"><i data-lucide="receipt-text"></i><span>Payments</span></a></nav>
+</div>
+<div class="drawer-backdrop" id="drawerBackdrop"></div>
+<aside class="customer-drawer" id="customerDrawer" aria-label="Details" aria-hidden="true">
+  <div class="drawer-head"><span style="font-size:13px;font-weight:700">Student details</span><button class="icon-button" id="closeDrawer" aria-label="Close details"><i data-lucide="x"></i></button></div>
+  <div class="drawer-body" id="drawerContent"></div>
+</aside>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+const $ = (s, root=document) => root.querySelector(s);
+const $$ = (s, root=document) => [...root.querySelectorAll(s)];
+const titles = {"dashboard": "Dashboard", "customers": "Students", "schedule": "Class schedule", "jobs": "Enrollment pipeline", "invoices": "Tuition & payments", "automations": "Automations", "integrations": "Integrations", "settings": "Settings"};
+const customerData = {"emily": {"name": "Emily Carter", "initials": "EC", "email": "emily.carter@email.com", "phone": "(860) 555-0112", "company": "Somers · CDL program", "status": "Enrolled", "spend": "$12,795", "joined": "Sep 28, 2026", "last": "Today, 9:00 AM", "note": "Week 11 of about 22. Yard hours on track; road training starts next week.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "marcus": {"name": "Marcus Reed", "initials": "MR", "email": "marcus.reed@email.com", "phone": "(860) 555-0113", "company": "Bridgeport · CDL program", "status": "Funding", "spend": "$12,795", "joined": "Sep 21, 2026", "last": "Yesterday", "note": "Federal aid paperwork in review. Starts with the next day class in Bridgeport.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "sophia": {"name": "Sophia Turner", "initials": "ST", "email": "sophia.turner@email.com", "phone": "(860) 555-0114", "company": "Bridgeport · CDL-160", "status": "Applicant", "spend": "$0", "joined": "Oct 15, 2026", "last": "Oct 28, 2026", "note": "Enquiry from the website. Works days; asked about evening CDL-160 classes.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "jordan": {"name": "Jordan Hayes", "initials": "JH", "email": "jordan.hayes@email.com", "phone": "(860) 555-0115", "company": "Somers · HVAC/R technician", "status": "Enrolled", "spend": "$14,950", "joined": "Aug 30, 2026", "last": "Oct 27, 2026", "note": "HVAC/R technician program. EPA certification exam booked for next month.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "olivia": {"name": "Olivia Brooks", "initials": "OB", "email": "olivia.brooks@email.com", "phone": "(860) 555-0116", "company": "Pawtucket · CDL program", "status": "Graduate", "spend": "$12,795", "joined": "Jul 12, 2026", "last": "Oct 23, 2026", "note": "Graduated and licensed. Placed with a regional carrier; ask for a Google review.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "ethan": {"name": "Ethan Collins", "initials": "EC", "email": "ethan.collins@email.com", "phone": "(860) 555-0117", "company": "Bridgeport · CDL-160", "status": "Overdue", "spend": "$6,595", "joined": "Sep 14, 2026", "last": "Oct 21, 2026", "note": "Payment plan installment 5 days late. No late fee; friendly reminder and pay link resent.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}, "grace": {"name": "Grace Mitchell", "initials": "GM", "email": "grace.mitchell@email.com", "phone": "(860) 555-0118", "company": "Haverhill · Heavy Straight Truck (Class B)", "status": "Enrolled", "spend": "$3,695", "joined": "Oct 1, 2026", "last": "Oct 19, 2026", "note": "Amazon Career Choice student. Class B training; road test booked for next Thursday.", "history": [["Oct 22, 2026", "Range hours logged"], ["Oct 9, 2026", "Funding approved"], ["Sep 28, 2026", "Enrolled"]]}};
+const invoiceData = {"INV-8421": {"customer": "Marcus Reed", "company": "CDL program", "date": "Oct 28, 2026", "due": "Nov 4, 2026", "amount": "$12,795.00", "status": "Unpaid", "description": "CDL program · federal aid disbursement pending"}, "INV-8419": {"customer": "Grace Mitchell", "company": "Career Choice", "date": "Oct 26, 2026", "due": "Nov 25, 2026", "amount": "$3,695.00", "status": "Unpaid", "description": "Heavy Straight Truck (Class B) · sponsored seat"}, "INV-8412": {"customer": "Ethan Collins", "company": "CDL-160", "date": "Oct 15, 2026", "due": "Oct 25, 2026", "amount": "$350.00", "status": "Overdue", "description": "CDL-160 · payment plan installment 3 of 6"}, "INV-8416": {"customer": "Jordan Hayes", "company": "HVAC/R technician", "date": "Oct 20, 2026", "due": "Oct 27, 2026", "amount": "$1,200.00", "status": "Paid", "description": "HVAC/R technician · monthly installment"}, "INV-8410": {"customer": "Noah Bennett", "company": "VA Chapter 33", "date": "Oct 12, 2026", "due": "Nov 11, 2026", "amount": "$14,950.00", "status": "Unpaid", "description": "HVAC/R technician · VA certified"}};
+function iconRefresh(){ if(window.lucide) lucide.createIcons(); }
+function showToast(message){
+  const toast=$('#toast'); toast.textContent=message; toast.classList.add('show');
+  clearTimeout(showToast.timer); showToast.timer=setTimeout(()=>toast.classList.remove('show'),2600);
+}
+function navigate(route){
+  if(!titles[route]) route='dashboard';
+  $$('.module').forEach(m=>m.classList.toggle('active',m.dataset.module===route));
+  $$('[data-route]').forEach(a=>a.classList.toggle('active',a.dataset.route===route));
+  $('#breadcrumbTitle').textContent=titles[route];
+  if(location.hash!=='#'+route) history.replaceState(null,'','#'+route);
+  window.scrollTo({top:0,behavior:'smooth'}); iconRefresh();
+}
+function openCustomer(id){
+  const c=customerData[id]; if(!c)return;
+  const statusClass=c.status==='Active'?'active-status':c.status==='Lead'?'pending':'late';
+  $('#drawerContent').innerHTML=`
+    <div class="drawer-person"><div class="person-avatar">${c.initials}</div><div><h2>${c.name}</h2><p>${c.company}</p><span class="status ${statusClass}" style="margin-top:8px">${c.status}</span></div></div>
+    <button class="button primary" style="width:100%" data-action="edit-customer"><i data-lucide="pencil"></i>Edit student</button>
+    <div class="detail-label">Contact information</div>
+    <div class="detail-row"><i data-lucide="mail"></i>${c.email}</div><div class="detail-row"><i data-lucide="phone"></i>${c.phone}</div><div class="detail-row"><i data-lucide="building-2"></i>${c.company}</div>
+    <div class="detail-label">Student overview</div><div class="mini-stat"><span>Program fee</span><strong>${c.spend}</strong></div><div class="mini-stat"><span>Enrolled on</span><strong>${c.joined}</strong></div><div class="mini-stat"><span>Last interaction</span><strong>${c.last}</strong></div>
+    <div class="detail-label">Notes</div><div class="note-box">${c.note}</div>
+    <div class="detail-label">Recent history</div>${c.history.map(h=>`<div class="activity-item"><div class="activity-icon"><i data-lucide="circle-check"></i></div><div class="activity-copy"><p>${h[1]}</p><span>${h[0]}</span></div></div>`).join('')}
+    <button class="button" style="width:100%;margin-top:18px" data-action="add-note"><i data-lucide="notebook-pen"></i>Add a note</button>`;
+  $('#customerDrawer').classList.add('open');$('#drawerBackdrop').classList.add('open');$('#customerDrawer').setAttribute('aria-hidden','false');iconRefresh();
+}
+function closeCustomer(){$('#customerDrawer').classList.remove('open');$('#drawerBackdrop').classList.remove('open');$('#customerDrawer').setAttribute('aria-hidden','true')}
+function showInvoice(id){
+  const inv=invoiceData[id];if(!inv)return;
+  $('#previewInvoiceId').textContent=id;$('#previewCustomer').innerHTML=inv.customer+'<br>'+inv.company;
+  $('#previewDate').innerHTML=inv.date+'<br>Due '+inv.due;$('#previewDescription').textContent=inv.description;
+  $('#previewAmount').textContent=inv.amount;$('#previewSubtotal').textContent=inv.amount;$('#previewTotal').textContent=inv.amount;
+  const pill=$('#previewStatus');pill.textContent=inv.status;pill.className='status '+(inv.status==='Paid'?'paid':inv.status==='Overdue'?'overdue':'unpaid');
+  iconRefresh();
+}
+function setBrand(hex){
+  document.documentElement.style.setProperty('--brand',hex);
+  const darken=(color,amount=18)=>{let c=color.replace('#','');let n=parseInt(c,16);let r=Math.max(0,(n>>16)-amount),g=Math.max(0,((n>>8)&255)-amount),b=Math.max(0,(n&255)-amount);return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('')};
+  const lighten=(color,ratio=.9)=>{let c=color.replace('#','');let n=parseInt(c,16);return '#'+[n>>16,(n>>8)&255,n&255].map(v=>Math.round(v+(255-v)*ratio).toString(16).padStart(2,'0')).join('')};
+  document.documentElement.style.setProperty('--brand-hover',darken(hex));
+  document.documentElement.style.setProperty('--brand-soft',lighten(hex,.89));
+  $$('.swatch').forEach(s=>s.classList.toggle('selected',s.dataset.color?.toLowerCase()===hex.toLowerCase()));
+  $('#customBrand').value=hex;
+}
+function runAction(action){
+ const messages={
+  'quick-add':'Choose what you’d like to add: a student, class, enrollment or payment.',
+  'add-customer':'Customer form opened in this concept preview.',
+  'new-booking':'Booking form opened in this concept preview.',
+  'new-job':'New job form opened in this concept preview.',
+  'new-invoice':'Invoice composer opened in this concept preview.',
+  'new-automation':'Automation builder opened in this concept preview.',
+  'help':'Support request panel would open here in the live product.',
+  'notifications':'You’re all caught up on important notifications.',
+  'export':'Customer export prepared in this concept preview.',
+  'filter':'Filters are ready to configure in the live workspace.',
+  'page':'Pagination is interactive in the full product.',
+  'remind':"Payment plan reminder sent to Ethan Collins.",
+  'schedule-review':'Team review planner opened in this concept preview.',
+  'availability':'Availability settings opened in this concept preview.',
+  'job-list':'List view would display all jobs with sortable columns.',
+  'invoice-filter':'Invoice filters opened in this concept preview.',
+  'all-invoices':'Showing the latest invoice records in this preview.',
+  'download-invoice':'Invoice preview is ready. Connect a PDF service to enable downloads.',
+  'integration-help':'Integration setup guidance opened in this concept preview.',
+  'migration':'Migration planning started. A live setup would begin with a source audit.',
+  'save-settings':'Workspace settings saved for this preview.',
+  'invite-team':'Team invitation form opened in this concept preview.',
+  'edit-customer':'Customer edit form opened in this concept preview.',
+  'add-note':'Add-note editor opened in this concept preview.',
+  'activity':'Recent activity feed opened in this concept preview.'
+ };
+ if(action==='quick-add'){showQuickAdd();return}
+ if(action==='today'){showToast('Calendar focused on this week.');return}
+ if(action==='previous-week'||action==='next-week'){showToast('Week navigation is a demo interaction.');return}
+ showToast(messages[action]||'This action is available in the full product.');
+}
+function showQuickAdd(){
+ const choice=prompt('Quick add: enter student, class, enrollment or payment');
+ if(!choice)return;
+ const routes={"student": "customers", "class": "schedule", "enrollment": "jobs", "payment": "invoices"};
+ const route=routes[choice.trim().toLowerCase()];
+ if(route){navigate(route);showToast('Opening '+choice.trim().toLowerCase()+' workspace.')}
+ else showToast('Choose student, class, enrollment or payment.');
+}
+document.addEventListener('click',e=>{
+ const routeEl=e.target.closest('[data-route]');if(routeEl){e.preventDefault();navigate(routeEl.dataset.route);return}
+ const routeButton=e.target.closest('[data-route-button]');if(routeButton){navigate(routeButton.dataset.routeButton);return}
+ const customerRow=e.target.closest('[data-customer]');if(customerRow){openCustomer(customerRow.dataset.customer);return}
+ const invoiceRow=e.target.closest('[data-invoice]');if(invoiceRow){showInvoice(invoiceRow.dataset.invoice);showToast('Invoice preview updated.');return}
+ const connect=e.target.closest('[data-connect]');if(connect){const card=connect.closest('.integration-card');const status=card.querySelector('.status');const connected=status.textContent==='Connected';status.textContent=connected?'Not connected':'Connected';status.className='status '+(connected?'neutral':'active-status');connect.textContent=connected?'Connect':'Manage connection';connect.classList.toggle('primary',connected);showToast((connected?'Disconnected ':'Connection enabled for ')+connect.dataset.connect+' (demo).');return}
+ const color=e.target.closest('[data-color]');if(color){setBrand(color.dataset.color);return}
+ const action=e.target.closest('[data-action]');if(action){runAction(action.dataset.action);return}
+});
+$('#closeDrawer').addEventListener('click',closeCustomer);$('#drawerBackdrop').addEventListener('click',closeCustomer);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeCustomer()});
+
+// Workspace-wide search: route to the most relevant module and filter its visible records.
+$('#globalSearch').addEventListener('keydown',e=>{
+ if(e.key!=='Enter')return;
+ const q=e.currentTarget.value.trim().toLowerCase();
+ if(!q)return;
+ const routeMap=[{"route": "customers", "terms": ["students", "customer", "contact", "emily", "marcus", "sophia", "jordan", "olivia", "ethan", "grace"]}, {"route": "schedule", "terms": ["booking", "calendar", "schedule", "class", "appointment", "visit"]}, {"route": "jobs", "terms": ["job", "order", "pipeline", "enrollment", "kanban", "ticket"]}, {"route": "invoices", "terms": ["invoice", "payment", "tuition", "quote", "paid", "overdue"]}, {"route": "automations", "terms": ["automation", "workflow", "reminder"]}, {"route": "integrations", "terms": ["integration", "website enquiry forms", "enrollment manager", "gmail", "google calendar", "quickbooks", "google business"]}, {"route": "settings", "terms": ["setting", "branding", "team", "profile"]}];
+ const match=routeMap.find(item=>item.terms.some(term=>q.includes(term)||term.includes(q)));
+ if(match){
+   navigate(match.route);
+   if(match.route==='customers'){
+     $('#customerSearch').value=q;
+     filterCustomers();
+     const row=$$('#customersTable tbody tr').find(r=>r.textContent.toLowerCase().includes(q));
+     if(row&&row.dataset.customer)openCustomer(row.dataset.customer);
+   }else if(match.route==='integrations'){
+     $('#integrationSearch').value=q;
+     $('#integrationSearch').dispatchEvent(new Event('input',{bubbles:true}));
+   }
+   showToast('Showing results for “'+e.currentTarget.value.trim()+'”.');
+ }else{
+   const row=$$('#customersTable tbody tr').find(r=>r.textContent.toLowerCase().includes(q));
+   if(row){navigate('customers');$('#customerSearch').value=q;filterCustomers();openCustomer(row.dataset.customer);}
+   else showToast('No matching section found. Try student, class, enrollment or payment.');
+ }
+});
+
+$('#customerSearch').addEventListener('input',filterCustomers);
+$('#customerStatus').addEventListener('change',filterCustomers);
+function filterCustomers(){
+ const q=$('#customerSearch').value.toLowerCase(),status=$('#customerStatus').value;let visible=0;
+ $$('#customersTable tbody tr').forEach(row=>{const text=row.textContent.toLowerCase();const rowStatus=row.querySelector('.status')?.textContent||'';const show=text.includes(q)&&(status==='all'||rowStatus===status);row.style.display=show?'':'none';if(show)visible++});
+ $('#customerCount').textContent=`Showing ${visible} matching customers`;
+}
+$('#integrationSearch').addEventListener('input',e=>{$$('.integration-card[data-integration]').forEach(card=>card.style.display=card.dataset.integration.toLowerCase().includes(e.target.value.toLowerCase())?'':'none')});
+$$('.toggle').forEach(toggle=>toggle.addEventListener('change',()=>{const count=$$('.toggle:checked').length;$('#activeWorkflowCount').textContent=count;const name=toggle.closest('.workflow-card').querySelector('h3').textContent;showToast(name+(toggle.checked?' enabled':' paused'));}));
+$('#customBrand').addEventListener('input',e=>setBrand(e.target.value));
+$('#logoInitials').addEventListener('input',e=>{$$('.brand-mark').forEach(mark=>mark.textContent=e.target.value||'LA')});
+$('#businessName').addEventListener('input',e=>{$$('.brand-name').forEach(n=>n.textContent=e.target.value||'Your Business');$$('.invoice-brand strong').forEach(n=>n.textContent=e.target.value||'Your Business');$$('.footer').forEach(n=>n.textContent=`Concept preview prepared for ${e.target.value||'Your Business'} by Lotus Automations`)});
+$('#businessCity').addEventListener('input',e=>{$$('.invoice-brand small').forEach(n=>n.textContent=(e.target.value||'Your city')+" \u00b7 CDL and HVAC/R training since 1965")});
+$$('.job-card').forEach(card=>{
+ card.addEventListener('dragstart',e=>{e.dataTransfer.setData('text/plain',card.dataset.job);e.dataTransfer.effectAllowed='move';card.classList.add('dragging')});
+ card.addEventListener('dragend',()=>card.classList.remove('dragging'));
+ card.addEventListener('click',()=>showToast(card.dataset.job+' · Move this card between columns to update status.'));
+});
+$$('.kanban-col').forEach(col=>{
+ col.addEventListener('dragover',e=>{e.preventDefault();col.style.outline='2px solid var(--brand-soft)'});
+ col.addEventListener('dragleave',()=>col.style.outline='');
+ col.addEventListener('drop',e=>{e.preventDefault();col.style.outline='';const job=e.dataTransfer.getData('text/plain');const card=$(`[data-job="${CSS.escape(job)}"]`);if(card){col.appendChild(card);const count=col.querySelectorAll('.job-card').length;col.querySelector('.kanban-head span').textContent=count;$$('.kanban-col').forEach(c=>c.querySelector('.kanban-head span').textContent=c.querySelectorAll('.job-card').length);showToast(job+' moved to '+col.dataset.status+'.')}});
+});
+window.addEventListener('hashchange',()=>navigate(location.hash.slice(1)||'dashboard'));
+navigate(location.hash.slice(1)||'dashboard');iconRefresh();
+
+document.addEventListener('click',e=>{const b=e.target.closest('[data-run-recipe]');if(!b)return;e.stopPropagation();const card=b.closest('.recipe');const steps=[...card.querySelectorAll('.flow-step')];steps.forEach(x=>x.classList.remove('lit'));steps.forEach((x,i)=>setTimeout(()=>{x.classList.add('lit');if(i===steps.length-1)showToast(card.querySelector('h3').textContent+': demo run complete.')},500*(i+1)))},true);
+
+</script>
+</body>
+</html>
